@@ -43,18 +43,18 @@ def newText(lim, n, table):
                     break
 
         newSuffix = output[len(output)-n:len(output)] # the new suffix
-        print "new suffix: ", newSuffix
+        #print "new suffix: ", newSuffix
 
         chainCount += 1
         # find the index of the latest prefix
         hasSuffix = False
-        print "checking for suffix"
+        #print "checking for suffix"
         for i in range(0, len(table)):
-            print table[i][0], newSuffix
+            #print table[i][0], newSuffix
             if table[i][0] == newSuffix:
                 idx0 = i
                 hasSuffix = True
-                print "suffix found"
+                #print "suffix found"
                 break
     print
     print chainCount
