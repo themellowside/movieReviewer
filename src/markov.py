@@ -1,5 +1,6 @@
 import math
 import random
+
 # markov chain text generator
 
 # first: take a parameter n (number of prefixes to a suffix)
@@ -15,12 +16,18 @@ import random
 #    [prefix2, [suffix, count], [suffix2, count2], [suffix3, count3]]
 #    ]
 
-def newText(lim, n, table):
-    idx0 = n # start with the first suffix that has a full prefix
-    # it's always n to access the first full set of prefix
+
+
+def newText(lim, n, table, twitter):
+
 
     # for now just choose the first prefix without empty values
     ##
+    twitter = True
+    if twitter:
+        idx0 = int (random.random() * len(table)+n)
+    else:
+        idx0 = n
 
     output = [] + table[idx0][0] ##PRETTY SURE THIS IS PASSING BY REFERENCE ONLY AND I DON'T KNOW WHY
     chainCount = 0
@@ -58,19 +65,19 @@ def newText(lim, n, table):
                 break
     print
     print chainCount
+    print output
     return " ".join(output)
 
 
 def generateTable(text, n):
-
     chain = []
     textArray = text.split()
     #
     for i in range(0, len(textArray)):
         suffix = textArray[i]
 
-        if i-n >= 0:
-            prefix = textArray[i-n:i]
+        if i - n >= 0:
+            prefix = textArray[i - n:i]
 
         else:
             prefix = []
@@ -78,7 +85,7 @@ def generateTable(text, n):
                 if i - j < 0:
                     prefix.append([])
                 else:
-                    prefix.append(textArray[i-j])
+                    prefix.append(textArray[i - j])
 
         # if prefix already exists, add a suffix to it (unless the suffix already exists in which case increment its count by 1)
 
@@ -90,8 +97,16 @@ def generateTable(text, n):
             if chain[k][0] == prefix:
                 prefixExists = True
 
-                for m in range (0, len(chain[k])):
-                    if(chain[k][m][0] == suffix):
+                for m in range(1, len(chain[k])):
+                    if (chain[k][m][0] == suffix):
+                        #for list in chain:
+                        #    print list
+                        #print suffix, chain[k][m][0]
+
+                        #print k,m
+                        #print chain[k]
+                        #print chain[k][m]
+                        #print chain[k][m][1]
                         chain[k][m][1] += 1
                         suffixExists = True
                 if not suffixExists:
@@ -102,13 +117,68 @@ def generateTable(text, n):
 
     return chain
 
-text = "I am not a number, I am a man, I am a real man, and I am number one"
 
-n = 2
+def generateMultidocTable(docs, n):
+    chain = []
+    for doc in docs:
 
-chain = generateTable(text, n)
+        if '@' not in doc:
+            textArray = doc.split()
+            #
+            #
+            for i in range(0, len(textArray)):
+                suffix = textArray[i]
 
-for i in range(0, len(chain)):
-    print chain[i]
+                if i - n >= 0:
+                    prefix = textArray[i - n:i]
 
-print newText(1000, 2, chain)
+                else:
+                    prefix = []
+                    for j in range(n, 0, -1):
+                        if i - j < 0:
+                            prefix.append("")
+                        else:
+                            prefix.append(textArray[i - j])
+
+                # if prefix already exists, add a suffix to it (unless the suffix already exists in which case increment its count by 1)
+
+
+                prefixExists = False
+                suffixExists = False
+                for k in range(0, len(chain)):
+
+                    if chain[k][0] == prefix:
+                        prefixExists = True
+
+                        for m in range(1, len(chain[k])):
+                            if (chain[k][m][0] == suffix):
+                                # for list in chain:
+                                #    print list
+                                # print suffix, chain[k][m][0]
+
+                                # print k,m
+                                # print chain[k]
+                                # print chain[k][m]
+                                # print chain[k][m][1]
+                                chain[k][m][1] += 1
+                                suffixExists = True
+                        if not suffixExists:
+                            chain[k].append([suffix, 1])
+
+                if not prefixExists:
+                    chain.append([prefix, [suffix, 1]])
+
+    return chain
+
+
+#text = "I am not a number, I am a man, I am a real man, and I am number one"
+
+#n = 2
+
+#chain = generateTable(text, n)
+
+#for i in range(0, len(chain)):
+#    print chain[i]
+
+#print newText(1000, 2, chain)
+
