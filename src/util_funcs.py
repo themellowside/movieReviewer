@@ -7,3 +7,9 @@ def stripNonAscii(str):
             newStr = newStr + c
 
     return newStr
+
+def getSentencesIncluding (sentences):
+    #splits a long string of sentences into sentences
+    import ntlk.data
+
+    tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')

@@ -23,11 +23,12 @@ def chaineyReview():
 
     str = f.read()
     print "Suggested keyphrases:"
-    sid = SentimentIntensityAnalyzer()
     r = rake.Rake("lib/RAKE/SmartStoplist.txt")
     keywords = r.run(str)
     print keywords
     print "Reception of the film:"
+
+    sid = SentimentIntensityAnalyzer()
     reception = sid.polarity_scores(str)
     print "Pos:", reception.get('pos'), "Neg:", reception.get('neg')
 
@@ -50,8 +51,51 @@ def templateReview(movieName):
     cast = meta.get("cast")
     crew = meta.get("crew")
 
+    from nltk import tokenize
+    sentences = tokenize.sent_tokenize(str)
+
+    review = ""
+    #create a list of names from cast and crew with their role / job
+    #look for name of role, job or the name of the person (or one of their names) in each sentence
+    #
+
+    sentencesAboutPeople = []
+    sid = SentimentIntensityAnalyzer()
 
 
+    for sentence in sentences:
+        #check if sentence contains a name of a member of cast or crew
+        #if it does add it to a list of phrases discussing cast or crew members
+        sent = sid.polarity_scores(sentence)
+        for person in cast:
+            name = person.get('name')
+            role = person.get('character')
+            if name in sentence or role in sentence:
+                #print sentence, name, role
+
+                sentencesAboutPeople.append([name, role, sentence, sent])
+
+        for person in crew:
+            name = person.get('name')
+            job = person.get('job')
+            if name in sentence or job in sentence:
+                #print sentence, name, job
+                sentencesAboutPeople.append([name, job, sentence, sent])
+
+    #now we have a list of sentences that talk about someone, and are tagged with their sentiment polarity
+    #we can use these to construct basic sentences that talk about the person's performance in the job (they did well, poorly, capably)
+    #
+
+    #http://www.nltk.org/howto/chunk.html
+    #
+
+    reception = sid.polarity_scores(str)
+    if reception.get('pos') > reception.get('neg'):
+        review += "Definitely one worth watching."
+    else:
+        review += "It's not worth seeing this film."
+
+    print review
 
 def getMovieMeta(movieName):
     import httplib
@@ -88,14 +132,15 @@ def generateSentence():
     #one difficulty with generating sentences is that summary or discussion of characters in the film will use proper nouns and it may be difficult to tell them apart from the
     #actors performing in it. for this purpose we will build a dictionary of actors and members of staff and a dictionary of the characters played using the IMDB files if at all possible
 
-    print 'fuck you'
+    print 'something'
 
     #
 
 def tagString(str):
 
     tokens = word_tokenize(str)
+    print tokens
     return nltk.pos_tag(tokens)
 
 #templateReview()
-templateReview("Whiplash")
+templateReview("Bridge+Of+Spies")
