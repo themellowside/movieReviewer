@@ -6,10 +6,10 @@ from nltk.sentiment.util import *
 from lib.RAKE import rake
 
 
-f = open('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/input.txt', 'r')
+f = open('src/input.txt', 'r')
 
 str = f.read()
 
-r = rake.Rake("/Users/tom/Documents/CSY3/FYP/movieReviewer/src/lib/RAKE/SmartStoplist.txt")
+r = rake.Rake("src/lib/RAKE/SmartStoplist.txt")
 
 print r.run(str)
