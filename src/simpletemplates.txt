@@ -1,0 +1,5 @@
+[actor] performed [adverb] in the role of [role].
+[actor]'s performance was [adjective].
+[moviename], directed by [director] and starring [actor], is overall a [adjective] experience.
+[director] has created a [adjective] film in [moviename].
+[crew] has fulfilled the role of [job] [adverb].

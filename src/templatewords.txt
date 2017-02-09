@@ -1,0 +1,3 @@
+[not] [pos: [""], neg: ["not"]]
+[see] [pos: ["watch", "catch", "see"] neg: ["avoid", "miss", "skip"]]
+[worth] [pos: ["worth"], neg: ["not worth"]

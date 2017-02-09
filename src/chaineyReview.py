@@ -3,6 +3,7 @@ import nltk
 import util_funcs
 
 from nltk import word_tokenize
+from nltk import tokenize
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 from lib.RAKE import rake
@@ -46,12 +47,12 @@ def templateReview(movieName):
     str = f.read()
     str = util_funcs.stripNonAscii(str)
 
-    meta = getMovieMeta(movieName)
+    meta, genre = getMovieMeta(movieName.replace(" ", "+"))
 
     cast = meta.get("cast")
     crew = meta.get("crew")
 
-    from nltk import tokenize
+
     sentences = tokenize.sent_tokenize(str)
 
     review = ""
@@ -61,7 +62,10 @@ def templateReview(movieName):
 
     sentencesAboutPeople = []
     sid = SentimentIntensityAnalyzer()
+    reception = sid.polarity_scores(str)
 
+    sentencesAboutCast=[]
+    sentencesAboutCrew=[]
 
     for sentence in sentences:
         #check if sentence contains a name of a member of cast or crew
@@ -72,34 +76,63 @@ def templateReview(movieName):
             role = person.get('character')
             if name in sentence or role in sentence:
                 #print sentence, name, role
-
-                sentencesAboutPeople.append([name, role, sentence, sent])
+                for row in sentencesAboutCast:
+                    if row[0] == name and row[1] == role:
+                        row[2].append([sentence,sent])
+                        break
+                sentencesAboutCast.append([name, role, [[sentence, sent]]])
 
         for person in crew:
             name = person.get('name')
             job = person.get('job')
             if name in sentence or job in sentence:
                 #print sentence, name, job
-                sentencesAboutPeople.append([name, job, sentence, sent])
+                for row in sentencesAboutCrew:
+                    if row[0] == name and row[1] == job:
+                        row[2].append([sentence,sent])
+                        break
+                sentencesAboutCrew.append([name, job, [[sentence, sent]]])
+    introTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\introtemplates.txt')
+    outroTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\outrotemplates.txt')
+    sentenceTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\simpletemplates.txt')
 
+    intro = introTemplates[int(random.random()*len(introTemplates))]
+    outro = outroTemplates[int(random.random()*len(outroTemplates))]
+
+    bodylen = int(random.random() * len(sentenceTemplates)-2) +2
+
+    body = []
+
+    for i in range(bodylen, 0, -1):
+        pos = int(i * random.random())
+        #print pos, len(sentenceTemplates)
+
+        body.append(sentenceTemplates[pos])
+        del sentenceTemplates[pos]
     #now we have a list of sentences that talk about someone, and are tagged with their sentiment polarity
     #we can use these to construct basic sentences that talk about the person's performance in the job (they did well, poorly, capably)
     #
 
+
     #http://www.nltk.org/howto/chunk.html
     #
 
-    reception = sid.polarity_scores(str)
-    if reception.get('pos') > reception.get('neg'):
-        review += "Definitely one worth watching."
-    else:
-        review += "It's not worth seeing this film."
-
+    review += generateSentence(intro, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
+    for sent in body:
+        review += generateSentence(sent, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
+    review += generateSentence(outro, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception)
     print review
+
+def loadTemplates(filepath):
+    ##loads templates from txt file
+    templateFile = file(filepath, mode='r')
+    templateList = templateFile.read().splitlines()
+    return templateList
 
 def getMovieMeta(movieName):
     import httplib
     import json
+    import ast
     conn = httplib.HTTPSConnection("api.themoviedb.org")
 
     payload = "{}"
@@ -110,7 +143,8 @@ def getMovieMeta(movieName):
     searchData = json.loads(searchData)
     #print searchData
     movieId = str(searchData.get('results')[0].get('id'))
-
+    #print str(searchData.get('results')[0])
+    genreIDs = str(searchData.get('results')[0].get('genre_ids'))
     #print "Movie ID: ", movieId
     #find first instance of id in the text and return it as it is the movie title \"id\"
 
@@ -119,20 +153,47 @@ def getMovieMeta(movieName):
     castData = res.read()
 
     castData = json.loads(castData)
+    conn.request("GET", "/3/genre/movie/list?api_key=16e6e2321c81b245dbae3e28e24f6b7e", payload)
+    res = conn.getresponse()
+    genreData = res.read()
+    genreData = json.loads(genreData)
+
+    genreList = genreData.get('genres')
+    genreString = ""
+    genreIDs = ast.literal_eval(genreIDs)
+    for genreItem in genreList:
+
+        if genreItem.get('id') == genreIDs[0]:
+            genreString = genreItem.get('name')
+
     #print castData
+    #print genreData.get('genres')[0].get('name')
+    #print genreString
+    return castData, genreString
 
-    return castData
+def generateSentence(sentence, castSent, crewSent, moviename, genre, sent):
 
-def generateSentence():
-    #nouns with adjectives preceeding or following them
-    #structure of a movie review generally touches upon themes, technical detials, individual performances and such.
-    #begins with an introduction, often describing a memorable scene from the film.
-    #so we can break the sentence generation down in to some of these things.
-    #
-    #one difficulty with generating sentences is that summary or discussion of characters in the film will use proper nouns and it may be difficult to tell them apart from the
-    #actors performing in it. for this purpose we will build a dictionary of actors and members of staff and a dictionary of the characters played using the IMDB files if at all possible
+    #picks an actor mentioned in the castSent
+    if ('[director]' in sentence):
+        print 'director'
+    if ('[actor]' or '[actor2]' in sentence):
+        print 'actor'
+    if ('[crew]' in sentence):
+        print 'crew'
 
-    print 'something'
+    if ('[moviename]' in sentence):
+        sentence = sentence.replace('[moviename]', moviename)
+        print moviename
+    if ('[genre]' in sentence):
+        sentence = sentence.replace('[genre]', genre)
+        if('[see]' in sentence):
+            if(sent.get('pos') > sent.get('neg')):
+                sentence = sentence.replace('[see]', 'watch')
+            else:
+                sentence = sentence.replace('[see]', 'avoid')
+
+
+    return sentence
 
     #
 
@@ -143,4 +204,4 @@ def tagString(str):
     return nltk.pos_tag(tokens)
 
 #templateReview()
-templateReview("Bridge+Of+Spies")
+templateReview("Bridge Of Spies")
