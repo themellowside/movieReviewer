@@ -1,1 +1,1 @@
-[director]'s [moviename], starring [actor] as [role], and [actor2] as [role2], is an [adjective] film of the [genre] genre.
+[director]'s [moviename], starring [actor] as [role], and [actor2] as [role2], is an [movieadjective] film of the [genre] genre.

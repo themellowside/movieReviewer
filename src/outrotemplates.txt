@@ -1,4 +1,4 @@
-[director] has definitely [not] delivered with his latest film.
-[moviename] is certainly one to [see].
-[actor]'s performance is [not] worth coming to the theatre for.
-If you like [genre] movies, this is one to [see].
+[director] has definitely [directornot] delivered with his latest film.
+[moviename] is certainly one to [moviesee].
+[actor]'s performance is [actornot] worth coming to the theatre for.
+If you like [genre] movies, this is one to [moviesee].

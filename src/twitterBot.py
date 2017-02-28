@@ -4,8 +4,6 @@ import time
 from twython import Twython, TwythonError
 import json
 
-def getUserTimeLineAfter(i):
-    return
 
 def runTombot():
     while True:
@@ -16,7 +14,6 @@ def runTombot():
         ACCESS_TOKEN = '319558171-P5bk8YupTGPmvXTq8Qlg8fWa7crIGS7Skw0pmEbB'
         ACCESS_TOKEN_SECRET = 'U4hCqSl7ERhF7Ttk5Wl2pDYggPohf0BS4BaC3FSRrNfEB'
 
-        twitter = Twython(API_KEY, API_SECRET_KEY, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
         try:
             twitter = Twython(API_KEY, API_SECRET_KEY, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
@@ -41,7 +38,9 @@ def runTombot():
             chain = generateMultidocTable(user_timeline_strings, 1)
             # for c in chain:
             #    print c
-            tweet = newText(5 + int(random.random() * 27), 1, chain, True)
+            #tweet = newText(5 + int(random.random() * 27), 1, chain, True)
+            tweet = newText(100, 1, chain, True)
+
             print "Generated tweet: ", tweet
             twitter.update_status(status=tweet)
         except TwythonError as e:
