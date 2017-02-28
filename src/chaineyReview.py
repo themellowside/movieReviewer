@@ -1,5 +1,7 @@
 import random
 import nltk
+from rope.base.pyobjectsdef import _AssignVisitor
+
 import util_funcs
 
 from nltk import word_tokenize
@@ -47,8 +49,8 @@ def chaineyReview():
 
 def templateReview(movieName):
 
-    #f = open('input.txt', 'r')
-    f = open('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/input.txt', 'r')
+    f = open('input.txt', 'r')
+    #f = open('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/input.txt', 'r')
 
     str = f.read()
     str = util_funcs.stripNonAscii(str)
@@ -106,14 +108,14 @@ def templateReview(movieName):
                         row[2].append([sentence,sent])
                         break
                 sentencesAboutCrew.append([name, job, [[sentence, sent]]])
-    #introTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\introtemplates.txt')
-    introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
+    introTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\introtemplates.txt')
+    #introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
 
-    #outroTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\outrotemplates.txt')
-    outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
+    outroTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\outrotemplates.txt')
+    #outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
 
-    #sentenceTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\simpletemplates.txt')
-    sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
+    sentenceTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\simpletemplates.txt')
+    #sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
 
     intro = introTemplates[int(random.random()*len(introTemplates))]
     outro = outroTemplates[int(random.random()*len(outroTemplates))]
@@ -137,8 +139,9 @@ def templateReview(movieName):
     #
 
     review += generateSentence(intro, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
-    for sent in body:
-        review += generateSentence(sent, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
+    for sentence in body:
+        #print sentence
+        review += generateSentence(sentence, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
     review += generateSentence(outro, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception)
     print review
 
@@ -190,10 +193,10 @@ def getMovieMeta(movieName):
     #print genreString
     return castData, genreString
 
-def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genre, sent):
+def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genre, sentiment):
 
     #completes the template sentence passed into the function
-    print sent
+    #print sentiment
     if '[director]' in sentence:
         director = directorSent[0]
         sentence = sentence.replace('[director]', director)
@@ -217,17 +220,22 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         actor = chosen[0]
         role = chosen[1]
         casent = chosen[2]
-
+        #print castSent
         #print "casent:", casent
         sentence = sentence.replace('[actor]', actor)
         sentence = sentence.replace('[role]', role)
         if '[actoradverb]' in sentence:
-            sentence = sentence.replace('[actoradverb]',selectWord(casent, 'adverb'))
+            #print "casent:", casent[0]
+            #print "directorSent:", directorSent[0]
+            sentence = sentence.replace('[actoradverb]', selectWord(casent, 'adverb'))
+
         if '[actoradjective]' in sentence:
+            #print "casent:", casent[0]
+            #print "directorSent:", directorSent[0]
             sentence = sentence.replace('[actoradjective]',selectWord(casent, 'adjective'))
 
         if '[actornot]' in sentence:
-            if(getSentRating(sent) == 'pos'):
+            if(getSentRating(sentiment) == 'pos'):
                 sentence = sentence.replace('[actornot]', '')
             else:
                 sentence = sentence.replace('[actornot]', 'not')
@@ -264,13 +272,13 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
     if '[moviename]' in sentence:
         sentence = sentence.replace('[moviename]', moviename)
         if '[movieadjective]' in sentence:
-            if sent.get('pos') > sent.get('neg'):
+            if sentiment.get('pos') > sentiment.get('neg'):
                 sentence = sentence.replace('[movieadjective]', 'excellent')
             else:
                 sentence = sentence.replace('[movieadjective]', 'un-enjoyable')
 
         if '[movieadverb]' in sentence:
-            if sent.get('pos') > sent.get('neg'):
+            if sentiment.get('pos') > sentiment.get('neg'):
                 sentence = sentence.replace('[movieadverb]', 'excellently')
             else:
                 sentence = sentence.replace('[movieadverb]', 'un-enjoyably')
@@ -280,7 +288,7 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         sentence = sentence.replace('[genre]', genre)
 
     if '[moviesee]' in sentence:
-        if sent.get('pos') > sent.get('neg'):
+        if sentiment.get('pos') > sentiment.get('neg'):
             sentence = sentence.replace('[moviesee]', 'watch')
         else:
             sentence = sentence.replace('[moviesee]', 'avoid')
@@ -292,10 +300,11 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
 def getSentRating(sent):
     #works out whether or not there is an overall positive or negative sentiment across all sentences in the list passed
     #returns either pos or negative
+    print sent
     polarityCount = 0
     for sentence in sent:
-        print "sentence:", sentence
-        if sentence.get('pos') > sentence.get('neg'):
+        #print "sentence:", sentence
+        if sentence[1].get('pos') > sentence[1].get('neg'):
             polarityCount += 1
     if polarityCount > len(sent):
         return 'pos'
@@ -305,8 +314,9 @@ def getSentRating(sent):
 
 def selectWord(sent, type):
     #selects an adjective or adverb that describes the given sentences
-    print sent
-    pol = getSentRating(sent[0])
+    #print "select word sent: ",sent
+    #print "running select word sent on: ", sent[0]
+    pol = getSentRating(sent)
 
 
     if type == 'adjective':
@@ -326,7 +336,7 @@ def selectWord(sent, type):
 def tagString(str):
 
     tokens = word_tokenize(str)
-    print tokens
+    #print tokens
     return nltk.pos_tag(tokens)
 
 #templateReview()
