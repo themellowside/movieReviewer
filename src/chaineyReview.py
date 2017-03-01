@@ -348,7 +348,7 @@ def scrapeSynopsis(title):
     #http://www.imdb.com/title/[id]/synopsis it is formatted like so. then i can parse the html and extract the synopsis
 
 def scrapeMovieReviews(title):
-
+    #same method as above, scrapes a bunch of movie reviews off of imdb, for now anyway. other movie sites may prove more accessible
 
 #templateReview()
 templateReview("Bridge Of Spies")
