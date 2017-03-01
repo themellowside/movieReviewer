@@ -312,6 +312,7 @@ def getSentRating(sent):
         return 'neg'
 
 
+
 def selectWord(sent, type):
     #selects an adjective or adverb that describes the given sentences
     #print "select word sent: ",sent
@@ -338,6 +339,16 @@ def tagString(str):
     tokens = word_tokenize(str)
     #print tokens
     return nltk.pos_tag(tokens)
+
+def scrapeSynopsis(title):
+    #http://www.omdbapi.com/
+
+    #scrapes imdb's synopsis page for movie title
+    #using the omdb api i can gather the imdb title id and then use this to construct the url
+    #http://www.imdb.com/title/[id]/synopsis it is formatted like so. then i can parse the html and extract the synopsis
+
+def scrapeMovieReviews(title):
+
 
 #templateReview()
 templateReview("Bridge Of Spies")
