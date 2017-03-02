@@ -9,6 +9,9 @@ from nltk import tokenize
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 from lib.RAKE import rake
+
+import httplib
+import json
 #http://www.nltk.org/book/ch06.html#ref-document-classify-extractor
 
 #sentences = rake.split_sentences(open('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/res/movie_reviews/neg/cv000_29416.txt', 'r').read())
@@ -152,8 +155,7 @@ def loadTemplates(filepath):
     return templateList
 
 def getMovieMeta(movieName):
-    import httplib
-    import json
+
     import ast
     conn = httplib.HTTPSConnection("api.themoviedb.org")
 
@@ -340,16 +342,55 @@ def tagString(str):
     #print tokens
     return nltk.pos_tag(tokens)
 
-def scrapeSynopsis(title):
+def getimdbID(title):
     #http://www.omdbapi.com/
 
-    #scrapes imdb's synopsis page for movie title
-    #using the omdb api i can gather the imdb title id and then use this to construct the url
-    #http://www.imdb.com/title/[id]/synopsis it is formatted like so. then i can parse the html and extract the synopsis
+    # using the omdb api i can gather the imdb title id and then use this to construct the url
 
-def scrapeMovieReviews(title):
+    import ast
+    conn = httplib.HTTPSConnection("www.omdbapi.com")
+
+    payload = "{}"
+
+    conn.request("GET", "/?t=" + title + "&r=json", payload)
+    res = conn.getresponse()
+    searchData = res.read()
+    searchData = json.loads(searchData)
+    # print searchData
+    # print searchData
+    return str(searchData.get('imdbID'))
+
+def scrapeSynopsis(imdbID):
+    # http://www.imdb.com/title/[id]/synopsis it is formatted like so. then i can parse the html and extract the synopsis
+    #scrapes imdb's synopsis page for movie title
+    synopsis = ""
+    conn = httplib.HTTPSConnection("www.imdb.com")
+
+    payload = "{}"
+
+    conn.request("GET", "/title/" + imdbID + "/synopsis", payload)
+    res = conn.getresponse()
+    searchData = res.read()
+    print searchData
+    # print searchData
+    # print searchData
+    return searchData
+
+
+def scrapeMovieReviews(imdbID):
     #same method as above, scrapes a bunch of movie reviews off of imdb, for now anyway. other movie sites may prove more accessible
+    reviews = ""
+    return reviews
+
+def scrapeIMDB(title):
+    id = getimdbID(title)
+    synopsis = scrapeSynopsis(id)
+    revs = scrapeMovieReviews(id)
+
+
 
 #templateReview()
-templateReview("Bridge Of Spies")
+#templateReview("Bridge Of Spies")
 #chaineyReview()
+
+print scrapeSynopsis("moonlight")
