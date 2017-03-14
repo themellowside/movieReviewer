@@ -1,6 +1,5 @@
 import random
 import nltk
-from rope.base.pyobjectsdef import _AssignVisitor
 
 import util_funcs
 
@@ -12,6 +11,10 @@ from lib.RAKE import rake
 
 import httplib
 import json
+
+import requests
+from bs4 import BeautifulSoup
+
 #http://www.nltk.org/book/ch06.html#ref-document-classify-extractor
 
 #sentences = rake.split_sentences(open('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/res/movie_reviews/neg/cv000_29416.txt', 'r').read())
@@ -52,20 +55,22 @@ def chaineyReview():
 
 def templateReview(movieName):
 
-    f = open('input.txt', 'r')
-    #f = open('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/input.txt', 'r')
-
-    str = f.read()
-    str = util_funcs.stripNonAscii(str)
-
+    
+    synopsis, reviews = scrapeIMDB(movieName.replace(" ", "+"))
+    from summa import summarizer
+    plotsummary = summarizer.summarize(synopsis)
+    reviewCorpora = ""
+    for review in reviews:
+        reviewCorpora += review
+    
     meta, genre = getMovieMeta(movieName.replace(" ", "+"))
 
     cast = meta.get("cast")
     crew = meta.get("crew")
 
 
-    sentences = tokenize.sent_tokenize(str)
-
+    sentences = tokenize.sent_tokenize(reviewCorpora)
+    
     review = ""
     #create a list of names from cast and crew with their role / job
     #look for name of role, job or the name of the person (or one of their names) in each sentence
@@ -73,7 +78,7 @@ def templateReview(movieName):
 
     sentencesAboutPeople = []
     sid = SentimentIntensityAnalyzer()
-    reception = sid.polarity_scores(str)
+    reception = sid.polarity_scores(reviewCorpora)
 
     sentencesAboutCast=[]
     sentencesAboutCrew=[]
@@ -85,17 +90,31 @@ def templateReview(movieName):
         for person in cast:
             name = person.get('name')
             role = person.get('character')
-            if name in sentence or role in sentence:
-                #print sentence, name, role
-                for row in sentencesAboutCast:
-                    if row[0] == name and row[1] == role:
-                        row[2].append([sentence,sent])
-                        break
-                sentencesAboutCast.append([name, role, [[sentence, sent]]])
+            assocnames = []
+            assocnames.append(name)
+            assocnames.append(role)
+            assocnames = getAssociatedWords(assocnames)
+            castappended = False
+            for assocname in assocnames:
+                if assocname in sentence:
+                    #print sentence, name, role
+                    for row in sentencesAboutCast:
+                        if row[0] == name and row[1] == role:
+                            row[2].append([sentence,sent])
+                            castappended = True
+                            break
+
+                if castappended:
+                    break
+            sentencesAboutCast.append([name, role, [[sentence, sent]]])
 
         for person in crew:
             name = person.get('name')
             job = person.get('job')
+            assocnames = []
+            assocnames.append(name)
+            assocnames = getAssociatedWords(assocnames)
+            assocnames.append(job)
             if job == 'Director':
                 if len(sentencesAboutDirector) == 0:
                     sentencesAboutDirector =[name, job, [[sentence, sent]]]
@@ -104,21 +123,28 @@ def templateReview(movieName):
                     sentencesAboutDirector[2].append([sentence, sent])
                     break
 
-            elif name in sentence or job in sentence:
-                #print sentence, name, job
-                for row in sentencesAboutCrew:
-                    if row[0] == name and row[1] == job:
-                        row[2].append([sentence,sent])
+            else:
+                crewappended = False
+                for assocname in assocnames:
+                    if assocname in sentence:
+                        #print sentence, name, job
+                        for row in sentencesAboutCrew:
+                            if row[0] == name and row[1] == job:
+                                row[2].append([sentence,sent])
+                                crewappended = True
+                                break
+                    if crewappended:
                         break
+
                 sentencesAboutCrew.append([name, job, [[sentence, sent]]])
-    introTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\introtemplates.txt')
-    #introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
+    #introTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\introtemplates.txt')
+    introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
 
-    outroTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\outrotemplates.txt')
-    #outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
+    #outroTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\outrotemplates.txt')
+    outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
 
-    sentenceTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\simpletemplates.txt')
-    #sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
+    #sentenceTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\simpletemplates.txt')
+    sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
 
     intro = introTemplates[int(random.random()*len(introTemplates))]
     outro = outroTemplates[int(random.random()*len(outroTemplates))]
@@ -142,6 +168,7 @@ def templateReview(movieName):
     #
 
     review += generateSentence(intro, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
+    review += plotsummary
     for sentence in body:
         #print sentence
         review += generateSentence(sentence, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
@@ -358,39 +385,89 @@ def getimdbID(title):
     searchData = json.loads(searchData)
     # print searchData
     # print searchData
-    return str(searchData.get('imdbID'))
+    id = str(searchData.get('imdbID'))
+    #print id
+    return id
 
 def scrapeSynopsis(imdbID):
     # http://www.imdb.com/title/[id]/synopsis it is formatted like so. then i can parse the html and extract the synopsis
     #scrapes imdb's synopsis page for movie title
+
+
     synopsis = ""
-    conn = httplib.HTTPSConnection("www.imdb.com")
+    #conn = httplib.HTTPSConnection("www.imdb.com")
 
-    payload = "{}"
+    #payload = "{}"
+    #conn.request("GET", "/title/" + imdbID + "/synopsis", payload)
+    #conn.request("GET", "/title/" + "moonlight" + "/synopsis", payload)
 
-    conn.request("GET", "/title/" + imdbID + "/synopsis", payload)
-    res = conn.getresponse()
-    searchData = res.read()
-    print searchData
+    #res = conn.getresponse()
+    #searchData = res.read()
+    #synopsis text starts at: <div id="swiki.2.1">
+
+    #print "trying: http://www.imdb.com/title/" + imdbID + "/synopsis"
+    r = requests.get('http://www.imdb.com/title/' + imdbID + "/synopsis")
+    #print r
+    #doctext = r.text
+
+    soup = BeautifulSoup(r.text, 'html.parser')
+    text = soup.find(id="swiki.2.1").get_text()
+
+    return text
     # print searchData
     # print searchData
-    return searchData
+    #return searchData
 
 
-def scrapeMovieReviews(imdbID):
-    #same method as above, scrapes a bunch of movie reviews off of imdb, for now anyway. other movie sites may prove more accessible
-    reviews = ""
+def scrapeMovieReviews(imdbID, lim):
+    #same method as above, scrapes a bunch of movie reviews off of imdb, for now anyway. other movie sites may prove more accessibler
+    reviews = []
+    illegalStrings = []
+    illegalStrings.append("*** This review may contain spoilers ***")
+    illegalStrings.append("Add another review")
+    illegalStrings.append("Find showtimes, watch trailers, browse photos, track your Watchlist and rate your favorite movies and TV shows on your phone or tablet!")
+    for i in range(0, lim):
+
+        #print "trying: http://www.imdb.com/title/" + imdbID + "/reviews?start=" + str(i*10)
+
+        r = requests.get('http://www.imdb.com/title/' + imdbID + "/reviews?start=" + str(i*10))
+        # print r
+        #print r.text
+        soup = BeautifulSoup(r.text, 'html.parser')
+
+        text = soup.findAll('p')
+        count = 0
+        for t in text:
+            string = t.get_text().replace("\n", " ").replace(u"\'", "")
+            if count > 10:
+                if string not in illegalStrings:
+                    reviews.append(string)
+
+
+            count += 1
+
+    #print reviews
     return reviews
+
+def getAssociatedWords(names):
+    assocNames = []
+    for name in names:
+        subnames = name.split(" ")
+        for subname in subnames:
+            if len(subname) > 3:
+                assocNames.append(subname)
+    return assocNames
+
 
 def scrapeIMDB(title):
     id = getimdbID(title)
     synopsis = scrapeSynopsis(id)
-    revs = scrapeMovieReviews(id)
-
+    #print synopsis
+    revs = scrapeMovieReviews(id, 5)
+    return synopsis, revs
 
 
 #templateReview()
-#templateReview("Bridge Of Spies")
+templateReview("Moonlight")
 #chaineyReview()
 
-print scrapeSynopsis("moonlight")
