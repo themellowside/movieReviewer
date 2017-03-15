@@ -94,19 +94,26 @@ def templateReview(movieName):
             assocnames.append(name)
             assocnames.append(role)
             assocnames = getAssociatedWords(assocnames)
+
             castappended = False
+            castExists = False
             for assocname in assocnames:
                 if assocname in sentence:
                     #print sentence, name, role
+
                     for row in sentencesAboutCast:
                         if row[0] == name and row[1] == role:
                             row[2].append([sentence,sent])
-                            castappended = True
+                            castExists = True
                             break
+                    if not castExists:
+                        sentencesAboutCast.append([name, role, [[sentence, sent]]])
+
+                    castappended = True
 
                 if castappended:
                     break
-            sentencesAboutCast.append([name, role, [[sentence, sent]]])
+
 
         for person in crew:
             name = person.get('name')
@@ -116,11 +123,19 @@ def templateReview(movieName):
             assocnames = getAssociatedWords(assocnames)
             assocnames.append(job)
             if job == 'Director':
-                if len(sentencesAboutDirector) == 0:
-                    sentencesAboutDirector =[name, job, [[sentence, sent]]]
-                    break
-                else:
-                    sentencesAboutDirector[2].append([sentence, sent])
+                dirAppended = False
+
+                for assocname in assocnames:
+                    if assocname in sentence:
+                        if len(sentencesAboutDirector) == 0:
+                            sentencesAboutDirector = [name, job, [[sentence, sent]]]
+                            dirAppended = True
+                            break
+                        else:
+                            sentencesAboutDirector[2].append([sentence, sent])
+                            dirAppended = True
+                            break
+                if(dirAppended):
                     break
 
             else:
@@ -137,14 +152,14 @@ def templateReview(movieName):
                         break
 
                 sentencesAboutCrew.append([name, job, [[sentence, sent]]])
-    introTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\introtemplates.txt')
-    #introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
+    #introTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\introtemplates.txt')
+    introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
 
-    outroTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\outrotemplates.txt')
-    #outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
+    #outroTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\outrotemplates.txt')
+    outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
 
-    sentenceTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\simpletemplates.txt')
-    #sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
+    #sentenceTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\simpletemplates.txt')
+    sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
 
     intro = introTemplates[int(random.random()*len(introTemplates))]
     outro = outroTemplates[int(random.random()*len(outroTemplates))]
@@ -174,6 +189,10 @@ def templateReview(movieName):
         review += generateSentence(sentence, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
     review += generateSentence(outro, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception)
     print review
+
+    print "Sentences about director:", sentencesAboutDirector
+    print "Sentences about cast:", sentencesAboutCast
+    print getAssociatedWords(["Tom Hanks", "Woody (voice)"])
 
 def loadTemplates(filepath):
     ##loads templates from txt file
@@ -331,7 +350,7 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
 def getSentRating(sent):
     #works out whether or not there is an overall positive or negative sentiment across all sentences in the list passed
     #returns either pos or negative
-    print "printing sent:", sent
+    #print "printing sent:", sent
 
 
     polarityCount = 0
@@ -457,8 +476,9 @@ def getAssociatedWords(names):
     assocNames = []
     for name in names:
         subnames = name.split(" ")
+
         for subname in subnames:
-            if len(subname) > 3:
+            if len(subname) > 2:
                 assocNames.append(subname)
     return assocNames
 
