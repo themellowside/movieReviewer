@@ -137,14 +137,14 @@ def templateReview(movieName):
                         break
 
                 sentencesAboutCrew.append([name, job, [[sentence, sent]]])
-    #introTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\introtemplates.txt')
-    introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
+    introTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\introtemplates.txt')
+    #introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
 
-    #outroTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\outrotemplates.txt')
-    outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
+    outroTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\outrotemplates.txt')
+    #outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
 
-    #sentenceTemplates = loadTemplates('C:\Users\Thomas\PycharmProjects\movieReviewer\src\simpletemplates.txt')
-    sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
+    sentenceTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\simpletemplates.txt')
+    #sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
 
     intro = introTemplates[int(random.random()*len(introTemplates))]
     outro = outroTemplates[int(random.random()*len(outroTemplates))]
@@ -234,6 +234,8 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         if '[directoradjective]' in sentence:
             sentence = sentence.replace('[directoradjective]',selectWord(directorSent, 'adjective'))
         if '[directornot]' in sentence:
+            #print "sentiment", sentiment
+            #print "directorSent", directorSent
             if(getSentRating(directorSent) == 'pos'):
                 sentence = sentence.replace('[directornot]', '')
             else:
@@ -243,12 +245,11 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         #pick an actor from the ones talked about and use sentiment (For now) to describe performance
         #print castSent
         #for now we also chose the actor randomly but can replace this with the most frequently mentioned ones in the future
-
+        print "cast sent : " , castSent
         chosenIdx = int(len(castSent) * random.random())
         chosen = castSent[chosenIdx]
         actor = chosen[0]
         role = chosen[1]
-        casent = chosen[2]
         #print castSent
         #print "casent:", casent
         sentence = sentence.replace('[actor]', actor)
@@ -256,21 +257,22 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         if '[actoradverb]' in sentence:
             #print "casent:", casent[0]
             #print "directorSent:", directorSent[0]
-            sentence = sentence.replace('[actoradverb]', selectWord(casent, 'adverb'))
+            sentence = sentence.replace('[actoradverb]', selectWord(chosen, 'adverb'))
 
         if '[actoradjective]' in sentence:
             #print "casent:", casent[0]
             #print "directorSent:", directorSent[0]
-            sentence = sentence.replace('[actoradjective]',selectWord(casent, 'adjective'))
+            sentence = sentence.replace('[actoradjective]',selectWord(chosen, 'adjective'))
 
         if '[actornot]' in sentence:
-            if(getSentRating(sentiment) == 'pos'):
+
+            if sentiment.get('pos') > sentiment.get('neg'): #check directorSent vs sentiment for formatting issues
                 sentence = sentence.replace('[actornot]', '')
             else:
                 sentence = sentence.replace('[actornot]', 'not')
 
         if '[actor2]' in sentence:
-            if len(castSent) ==1:
+            if len(castSent) == 1:
                 return "" #no second actor
             chosenIdx2 = int(len(castSent) * random.random())
             while(chosenIdx == chosenIdx2):
@@ -287,14 +289,14 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         chosen = crewSent[int(len(crewSent) * random.random())]
         crew = chosen[0]
         role = chosen[1]
-        crsent = chosen[2]
+
         sentence = sentence.replace('[job]', role)
         sentence = sentence.replace('[crew]', crew)
         #print crewSent
         if '[crewadverb]' in sentence:
-            sentence = sentence.replace('[crewadverb]',selectWord(crsent, 'adverb'))
+            sentence = sentence.replace('[crewadverb]',selectWord(chosen, 'adverb'))
         if '[crewadjective]' in sentence:
-            sentence = sentence.replace('[crewadjective]',selectWord(crsent, 'adjective'))
+            sentence = sentence.replace('[crewadjective]',selectWord(chosen, 'adjective'))
 
 
 
@@ -329,13 +331,16 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
 def getSentRating(sent):
     #works out whether or not there is an overall positive or negative sentiment across all sentences in the list passed
     #returns either pos or negative
-    print sent
+    print "printing sent:", sent
+
+
     polarityCount = 0
-    for sentence in sent:
+    for sentence in sent[2]:
         #print "sentence:", sentence
+
         if sentence[1].get('pos') > sentence[1].get('neg'):
             polarityCount += 1
-    if polarityCount > len(sent):
+    if polarityCount > int(len(sent)/2):
         return 'pos'
     else:
         return 'neg'
@@ -347,7 +352,6 @@ def selectWord(sent, type):
     #print "select word sent: ",sent
     #print "running select word sent on: ", sent[0]
     pol = getSentRating(sent)
-
 
     if type == 'adjective':
         if pol == 'pos':
@@ -463,11 +467,11 @@ def scrapeIMDB(title):
     id = getimdbID(title)
     synopsis = scrapeSynopsis(id)
     #print synopsis
-    revs = scrapeMovieReviews(id, 5)
+    revs = scrapeMovieReviews(id, 1)
     return synopsis, revs
 
 
 #templateReview()
-templateReview("Moonlight")
+templateReview("Toy Story")
 #chaineyReview()
 
