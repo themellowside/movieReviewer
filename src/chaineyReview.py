@@ -139,19 +139,24 @@ def templateReview(movieName):
                     break
 
             else:
+
                 crewappended = False
                 for assocname in assocnames:
                     if assocname in sentence:
-                        #print sentence, name, job
+                        # print sentence, name, role
+                        crewExists = False
                         for row in sentencesAboutCrew:
                             if row[0] == name and row[1] == job:
-                                row[2].append([sentence,sent])
-                                crewappended = True
+                                row[2].append([sentence, sent])
+                                crewExists = True
                                 break
+                        if not crewExists:
+                            sentencesAboutCrew.append([name, role, [[sentence, sent]]])
+
+                        crewappended = True
+
                     if crewappended:
                         break
-
-                sentencesAboutCrew.append([name, job, [[sentence, sent]]])
     #introTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\introtemplates.txt')
     introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
 
@@ -190,9 +195,10 @@ def templateReview(movieName):
     review += generateSentence(outro, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception)
     print review
 
-    print "Sentences about director:", sentencesAboutDirector
-    print "Sentences about cast:", sentencesAboutCast
-    print getAssociatedWords(["Tom Hanks", "Woody (voice)"])
+    #print "Sentences about director:", sentencesAboutDirector
+    #print "Sentences about cast:", sentencesAboutCast
+    #print getAssociatedWords(["Tom Hanks", "Woody (voice)"])
+    #print "Sentences about crew:", sentencesAboutCrew
 
 def loadTemplates(filepath):
     ##loads templates from txt file
