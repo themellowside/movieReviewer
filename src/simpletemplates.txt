@@ -2,4 +2,6 @@
 [actor]'s performance was [actoradjective].
 [moviename], directed by [director] and starring [actor], is overall a [actoradjective] experience.
 [director] has created a [movieadjective] film in [moviename].
+[director] has been done [directoradjective], and created a [movieadjective] film.
 [crew] has fulfilled the role of [job] [crewadverb].
+[crew] was definitely [crewadjective] in the job of [job].

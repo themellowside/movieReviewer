@@ -53,7 +53,7 @@ def chaineyReview():
         print "It's not worth seeing this film."
 
 
-def templateReview(movieName):
+def templateReview(movieName, withWordnet):
 
     
     synopsis, reviews = scrapeIMDB(movieName.replace(" ", "+"))
@@ -169,7 +169,7 @@ def templateReview(movieName):
     intro = introTemplates[int(random.random()*len(introTemplates))]
     outro = outroTemplates[int(random.random()*len(outroTemplates))]
 
-    bodylen = int(random.random() * len(sentenceTemplates)-2) +2
+    bodylen = int(random.random() * len(sentenceTemplates)-4) +4
 
     body = []
 
@@ -188,7 +188,7 @@ def templateReview(movieName):
     #
 
     review += generateSentence(intro, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
-    review += plotsummary
+    review += plotsummary + " "
     for sentence in body:
         #print sentence
         review += generateSentence(sentence, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
@@ -472,7 +472,6 @@ def scrapeMovieReviews(imdbID, lim):
                 if string not in illegalStrings:
                     reviews.append(string)
 
-
             count += 1
 
     #print reviews
@@ -498,6 +497,6 @@ def scrapeIMDB(title):
 
 
 #templateReview()
-templateReview("Toy Story")
+templateReview("Toy Story", withWordnet=True)
 #chaineyReview()
 
