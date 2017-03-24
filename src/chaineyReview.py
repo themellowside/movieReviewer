@@ -158,14 +158,14 @@ def templateReview(movieName, withWordnet):
 
                     if crewappended:
                         break
-    introTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\introtemplates.txt')
-    #introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
+    #introTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\introtemplates.txt')
+    introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
 
-    outroTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\outrotemplates.txt')
-    #outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
+    #outroTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\outrotemplates.txt')
+    outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
 
-    sentenceTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\simpletemplates.txt')
-    #sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
+    #sentenceTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\simpletemplates.txt')
+    sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
 
     intro = introTemplates[int(random.random()*len(introTemplates))]
     outro = outroTemplates[int(random.random()*len(outroTemplates))]
@@ -288,7 +288,7 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         if '[actoradjective]' in sentence:
             #print "casent:", casent[0]
             #print "directorSent:", directorSent[0]
-            sentence = sentence.replace('[actoradjective]',selectWord(chosen, 'adjective', withWordNet))
+            sentence = sentence.replace('[actoradjective]', selectWord(chosen, 'adjective', withWordNet))
 
         if '[actornot]' in sentence:
 
@@ -381,7 +381,8 @@ def selectWord(sent, type, withWordNet):
     #print sent
     if withWordNet:
 
-        getAssocWord(sent, type)
+        return getAssocWord(sent, type)
+
     else:
         if type == 'adjective':
             if pol == 'pos':
