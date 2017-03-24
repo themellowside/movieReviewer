@@ -14,6 +14,8 @@ import json
 
 import requests
 from bs4 import BeautifulSoup
+from getAssocWord import *
+
 
 #http://www.nltk.org/book/ch06.html#ref-document-classify-extractor
 
@@ -55,7 +57,6 @@ def chaineyReview():
 
 def templateReview(movieName, withWordnet):
 
-    
     synopsis, reviews = scrapeIMDB(movieName.replace(" ", "+"))
     from summa import summarizer
     plotsummary = summarizer.summarize(synopsis)
@@ -157,14 +158,14 @@ def templateReview(movieName, withWordnet):
 
                     if crewappended:
                         break
-    #introTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\introtemplates.txt')
-    introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
+    introTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\introtemplates.txt')
+    #introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
 
-    #outroTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\outrotemplates.txt')
-    outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
+    outroTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\outrotemplates.txt')
+    #outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
 
-    #sentenceTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\simpletemplates.txt')
-    sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
+    sentenceTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\simpletemplates.txt')
+    #sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
 
     intro = introTemplates[int(random.random()*len(introTemplates))]
     outro = outroTemplates[int(random.random()*len(outroTemplates))]
@@ -187,12 +188,12 @@ def templateReview(movieName, withWordnet):
     #http://www.nltk.org/howto/chunk.html
     #
 
-    review += generateSentence(intro, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
+    review += generateSentence(intro, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception, withWordnet) + " "
     review += plotsummary + " "
     for sentence in body:
         #print sentence
-        review += generateSentence(sentence, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception) + " "
-    review += generateSentence(outro, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception)
+        review += generateSentence(sentence, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception, withWordnet) + " "
+    review += generateSentence(outro, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception, withWordnet)
     print review
 
     #print "Sentences about director:", sentencesAboutDirector
@@ -247,7 +248,7 @@ def getMovieMeta(movieName):
     #print genreString
     return castData, genreString
 
-def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genre, sentiment):
+def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genre, sentiment, withWordNet):
 
     #completes the template sentence passed into the function
     #print sentiment
@@ -255,9 +256,9 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         director = directorSent[0]
         sentence = sentence.replace('[director]', director)
         if '[directoradverb]' in sentence:
-            sentence = sentence.replace('[directoradverb]',selectWord(directorSent, 'adverb'))
+            sentence = sentence.replace('[directoradverb]',selectWord(directorSent, 'adverb', withWordNet))
         if '[directoradjective]' in sentence:
-            sentence = sentence.replace('[directoradjective]',selectWord(directorSent, 'adjective'))
+            sentence = sentence.replace('[directoradjective]',selectWord(directorSent, 'adjective', withWordNet))
         if '[directornot]' in sentence:
             #print "sentiment", sentiment
             #print "directorSent", directorSent
@@ -270,7 +271,7 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         #pick an actor from the ones talked about and use sentiment (For now) to describe performance
         #print castSent
         #for now we also chose the actor randomly but can replace this with the most frequently mentioned ones in the future
-        print "cast sent : " , castSent
+        #print "cast sent : " , castSent
         chosenIdx = int(len(castSent) * random.random())
         chosen = castSent[chosenIdx]
         actor = chosen[0]
@@ -282,12 +283,12 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         if '[actoradverb]' in sentence:
             #print "casent:", casent[0]
             #print "directorSent:", directorSent[0]
-            sentence = sentence.replace('[actoradverb]', selectWord(chosen, 'adverb'))
+            sentence = sentence.replace('[actoradverb]', selectWord(chosen, 'adverb', withWordNet))
 
         if '[actoradjective]' in sentence:
             #print "casent:", casent[0]
             #print "directorSent:", directorSent[0]
-            sentence = sentence.replace('[actoradjective]',selectWord(chosen, 'adjective'))
+            sentence = sentence.replace('[actoradjective]',selectWord(chosen, 'adjective', withWordNet))
 
         if '[actornot]' in sentence:
 
@@ -319,9 +320,9 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         sentence = sentence.replace('[crew]', crew)
         #print crewSent
         if '[crewadverb]' in sentence:
-            sentence = sentence.replace('[crewadverb]',selectWord(chosen, 'adverb'))
+            sentence = sentence.replace('[crewadverb]',selectWord(chosen, 'adverb', withWordNet))
         if '[crewadjective]' in sentence:
-            sentence = sentence.replace('[crewadjective]',selectWord(chosen, 'adjective'))
+            sentence = sentence.replace('[crewadjective]',selectWord(chosen, 'adjective', withWordNet))
 
 
 
@@ -372,24 +373,27 @@ def getSentRating(sent):
 
 
 
-def selectWord(sent, type):
+def selectWord(sent, type, withWordNet):
     #selects an adjective or adverb that describes the given sentences
     #print "select word sent: ",sent
     #print "running select word sent on: ", sent[0]
     pol = getSentRating(sent)
+    #print sent
+    if withWordNet:
 
-    if type == 'adjective':
-        if pol == 'pos':
-            return 'good'
-        else:
-            return 'poor'
+        getAssocWord(sent, type)
+    else:
+        if type == 'adjective':
+            if pol == 'pos':
+                return 'good'
+            else:
+                return 'poor'
 
-    elif type == 'adverb':
-        if pol == 'pos':
-            return 'well'
-        else:
-            return 'poorly'
-
+        elif type == 'adverb':
+            if pol == 'pos':
+                return 'well'
+            else:
+                return 'poorly'
 
 
 def tagString(str):
