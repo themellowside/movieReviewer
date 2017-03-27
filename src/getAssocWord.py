@@ -42,7 +42,7 @@ def getAllOfType(type, taggedSent):
 
 def chooseWordOfType(wordsOfType):
     #tags sentences, gets all words of that type and then picks a word of that type that is most summarative of them all
-    print wordsOfType
+    #print wordsOfType
 
     return wordsOfType[int(random.random()*len(wordsOfType))]
 
@@ -51,5 +51,5 @@ def getAssocWord(sentences, type):
     sentences = posTagSentences(sentences)
     wordsOfType = getAllOfType(type, sentences)
     word = chooseWordOfType(wordsOfType)
-    print word
+    #print word
     return word
