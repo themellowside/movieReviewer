@@ -27,7 +27,7 @@ def runTombot():
             user_timeline_second = user_timeline = twitter.get_user_timeline(screen_name='nullBaa', count=200, include_rts=False,
                                                       trim_user=True, contributor_details=False, since=since)
 
-
+            print twitter.search(q='moonlight', result_type='popular').get('statuses')
             for tweet in user_timeline:
                 user_timeline_strings.append(tweet.get('text'))
 
@@ -42,7 +42,7 @@ def runTombot():
             tweet = newText(100, 1, chain, True)
 
             print "Generated tweet: ", tweet
-            twitter.update_status(status=tweet)
+            #twitter.update_status(status=tweet)
         except TwythonError as e:
             print e
         for i in range(1, 7):
