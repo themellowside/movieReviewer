@@ -59,7 +59,7 @@ def templateReview(movieName, withWordnet):
 
     synopsis, reviews = scrapeIMDB(movieName.replace(" ", "+"))
     from summa import summarizer
-    plotsummary = summarizer.summarize(synopsis)
+    plotsummary = summarizer.summarize(synopsis, ratio=0.05)
     reviewCorpora = ""
     for review in reviews:
         reviewCorpora += review
@@ -158,14 +158,14 @@ def templateReview(movieName, withWordnet):
 
                     if crewappended:
                         break
-    #introTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\introtemplates.txt')
-    introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
+    introTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\introtemplates.txt')
+    #introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
 
-    #outroTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\outrotemplates.txt')
-    outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
+    outroTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\outrotemplates.txt')
+    #outroTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/outrotemplates.txt')
 
-    #sentenceTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\simpletemplates.txt')
-    sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
+    sentenceTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\simpletemplates.txt')
+    #sentenceTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/simpletemplates.txt')
 
     intro = introTemplates[int(random.random()*len(introTemplates))]
     outro = outroTemplates[int(random.random()*len(outroTemplates))]
