@@ -1,78 +1,84 @@
-%\begin{savequote}[8cm]
-%Alles Gescheite ist schon gedacht worden.\\
-%Man muss nur versuchen, es noch einmal zu denken.
-%
-%All intelligent thoughts have already been thought;\\
-%what is necessary is only to try to think them again.
-%  \qauthor{--- Johann Wolfgang von Goethe \cite{von_goethe_wilhelm_1829}}
-%\end{savequote}
-
 \chapter{\label{ch:2-litreview}Background}
 
 %\minitoc
 
-\section{Introduction}
+\section{Review of Literature}
+I have researched a number of ways in which text is processed for information extraction, as well as methods for generating prose and generating summaries.
+\subsection{Markov Chain Text Generation}
+A very rudimentary methodology for generating prose is using a Markov Chain Model to certain degrees in order to generate a new text out of a given corpus. This can be fairly effective in generating random prose but is heavily dependant on how the input text varies and the selection of a good parameter, and does fall apart for larger outputs of text which lose structure and coherence.\\ %cite scigen here / postmodern generator
 
-This document introduction won't serve as a complete primer on \LaTeX.  There are plenty of those online, and googling your questions will often get you answers, especially from \url{http://tex.stackexchange.com}.
+The Markov models model text by building lists of n-words (usually 2 or 3), followed by the word that precedes them in the text. Then, choosing an arbitrary starting point the next word is chosen randomly based on the frequency of how often the n-preceding words are found in the text. As the text is modelled on a real input, the output should look like it was penned by a human at least at a glance. The text produced is at the least feasible but is very likely to fall apart upon closer inspection or when creating larger bodies of text.
 
-Instead, let's talk a little about a few of the features and packages lumped into this template situation.  The \verb|savequote| environment at the beginning of chapters can add some wittiness to your thesis.  If you don't like the quotes, just remove that block.
+\subsection{Document Summation}
+H. P. Luhn discusses a method for the automatic generation of a literature abstract through selecting significant sentences evaluated through word frequency distribution. This is a methodology that can potentially be applied to automatic summation of a long plot summary to create a part of a review text. While results from this are feasible, no understanding of the text is made, and text is not generated - merely sentences taken verbatim from the text. This is not an issue in the context of its use in the research, but for the intentions of creating useful text out of a larger corpus it couldn't be used on its own as a solution.\\
+R. Barzilay and M. Elhadad attempt document summarisation using lexical chains (representing the source text using lexical chains), an improved methodology for generating text summary which takes in to consideration the document's structure and attempts to summarize each section, but again suffering from the same problem of not producing any new text and merely sentence chunks of the input.\\ %(http://scholar.google.co.uk/scholar_url?url=http%3A%2F%2Facademiccommons.columbia.edu%2Fdownload%2Ffedora_content%2Fdownload%2Fac%3A160051%2FCONTENT%2Fbarzilay_elhadad_97.pdf&hl=en&sa=X&scisig=AAGBfm1-hlclQyAND4sOoh9b_i8tRHRf4A&nossl=1&oi=scholarr&ei=cqieVeqaCcaS7AaX_aSoBw&ved=0CB8QgAMoADAA)
 
-For when it comes time to do corrections, there are two useful commands here.  First, the \verb|mccorrect| command allows you to highlight a short correction \mccorrect{like this one}.  When the thesis is typeset normally, the correction will just appear as part of the text.  However, when you declare \verb|\correctionstrue| in the main \verb|Oxford_Thesis.tex| file, that correction will be highlighted in blue.  That might be useful for submitting a post-viva, corrected copy to your examiners so they can quickly verify you've completed the task.
+%
+The Textrank algorithm is another solution for the problem of document summation. It is graph-based and is used to rank key-words or sentences in a document in order to find the most summarative sentences or key-words. It is based on the Page-Rank algorithm used in Google searches, and builds a graph out of the text. It provides strong summarative solutions as the connective vertexes for each key-word is used to vote for the most significant key-word, meaning the words selected are very likely to be the most representative of the text. 
 
-\begin{mccorrection}
-For larger chunks, like this paragraph or indeed entire figures, you can use the \verb|mccorrection| environment.  This environment highlights paragraph-sized and larger blocks with the same blue colour.
-\end{mccorrection}
+\subsection{Part of Speech Tagging}
+Part of Speech tagging is a technique for automatically assigning and identifying what part of speech a specific word is (such as adjective, adverb, noun), with features for handling word sense disambiguation (eg identifying when can is a noun or a verb). Some of these are rule-based and some of these use machine learning methodologies to identify the part of speech of these words.
+%https://nlp.stanford.edu/~manning/papers/emnlp2000.pdf
+%http://luthuli.cs.uiuc.edu/~daf/courses/Signals%20AI/Papers/HMMs/h92-1022.pdf
+Eric Brill proposes a system for rule based PoS tagging, noting that most rule-based taggers have substantially higher error rates than ones that use stochastic methodologies.
+%https://nlp.stanford.edu/~manning/papers/tagging.pdf
 
-Read through the \verb|final-report.tex| file to see the various options for one- and two-sided printing, including or excluding the separate abstract page, and turning corrections and draft footer on or off, and the separate option to centre your text on the page (for PDF submission) or offset it (for binding).  There is also a separate option for master's degree submissions, which changes identifying information to candidate number and includes a word count.  (Unfortunately, \LaTeX has a hard time doing word counts automatically, so you'll have to enter the count manually if you require this.)
+\subsection{Wordnet}
+%http://iaoa.org/isc2012/docs/encycloped.article.pdf
 
-\section{Fraud Detection}
-\label{app:fraud}
+Wordnet is essentially a thesaurus in the form of a database of English language words grouped by synonymity, where each group refers to an individual concept. Each of these groups of synonyms is known as a synset and are linked to other synsets through lexical relations.
+The primary relations are synonym, and antonym, but also cover the relations "hypernym" and "meronym". Hypernym meaning a word more specific than a less specific word (eg ewe as a hypernym of sheep). A meronym is a word that makes up a whole (eg leg being a meronym of table). 
 
-Within months of Röntgen's discovery of the X-ray in \mccorrect{1895}\cite{gagliardi_rontgen_1996}, cardiac pathology was being investigated via non-invasive imaging \cite{gagliardi_cardiac_1996}.  Over the intervening years, cardiac imaging modalities and techniques have advanced significantly.  Clinically, cardiac imaging is used for two broad purposes: diagnosis of pathophysiology and guidance of interventional procedures.  These applications impose different requirements on imaging equipment, image acquisition time, computational complexity, spatial and temporal resolution, and tissue discrimination.  The common diagnostic and interventional cardiac imaging techniques in current clinical practice are reviewed below.  An accessible introduction to the physics of medical imaging can be found in Webb's \textit{Introduction to Biomedical Imaging} \cite{webb_introduction_2002}.  A comprehensive overview of the use of imaging in clinical cardiology is presented in Leeson's \textit{Cardiovascular Imaging} \cite{leeson_cardiovascular_2011}.
-
-\subsection{Machine Learning}
-\label{sub:machine-learning}
-
-Beyond the chest X-ray (`plain film'), the key non-invasive imaging modalities in diagnostic cardiology are echocardiography, magnetic resonance imaging, and X-ray computed tomography, which are reviewed below.  Nuclear medicine, including positron emission tomography (PET) and single-photon emission computed tomography (SPECT), are not discussed here, as they do not play a role in the chapters to follow.
-
-\subsubsection{Recurrent Neural Network}
-Most all previous RNN based~\emph{dst~forecasting}
-research~\cite{pallocchia:2006} has relied on
-batch\footnote{batch refers to models trained on an in sample data
-set and then evaluated on an out of sample data set in which no
-learning occurs in the out of sample data set.} algorithms for
-training the RNN. Batch training algorithms are unable to
-incorporate newly arrived information into the model parameters
-without re-processing the entire data set (which is a costly
-operation). Furthermore, the training algorithms used thus far for
-training the RNNs on~\emph{dst~forecasting} (all of which have been batch
-first order gradient descent) are known to be susceptible to local
-minima, and uncertain convergence. This has been a bottleneck in the
-area (and may stifle future progress in neural based forecasting of
-geomagnetic phenomena), as well performing models are difficult to
-obtain, and new events can not readily be incorporated into the
-model for improved forecasts.
+When it comes to lexical choice, this wordnet could prove invaluable in terms of understanding what words or themes occur in a text, as a frequently common hypernym could indicate a word that is usefully representative of a corpus of evaluative text.
 
 
-\begin{figure}
-\centering\includegraphics[width=0.7\textwidth]{figures/rnn.png} 
-\caption[A schematic representation of the fully recurrent neural
-network architecture.]{A schematic representation of the fully recurrent neural
-network architecture}
-\label{fig:fourchamber}\end{figure}
+\subsection{Sentiment Analysis}
+%Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for
+%Sentiment Analysis of Social Media Text. Eighth International Conference on
+%Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
+There are several approaches taken in order to evaluate sentiment in texts, one of which is using a rule-based system, and another being using supervised and unsupervised machine learning.
 
+VADER is a rule-based model for the sentiment analysis of text. It requires no training data, as it is rule based, and is constructed from a dictionary of words that has been selected manually by humans. It also features heuristics such as exclamation points and all-caps words increasing the intensity of the sentiment conveyed in analysis. It applies noticeably well to social media such as Twitter and other social media.
 
-\subsubsection{Rand Index Algorithm}
-
-%\begin{figure}
-%\centering\includegraphics[width=0.7\textwidth]{figures/sample/Gray498.png} 
-%\caption[Four-chamber illustration of the human heart.]{Four-chamber illustration of the human heart.  Clockwise from upper-left: right atrium, left atrium, left ventricle, right ventricle.}
-%\label{fig:fourchamber}\end{figure}
+One area of expansion noticeable with sentiment analysis discussed in these areas is that they only tackle polarity (positive or negative) sentiment. This could be improved upon with the use of a more precise list of key terms with more precise polarity terms, and produce more interesting evaluation which for the purposes of selecting language in a NLG system.
 
 
 
+\subsection{Building NLG Systems}
+
+
+\section{Related Existing Projects}
+A large amount of inspiration in terms of my methodology has come from currently existing language generation systems and projects.
+\subsection{NLTK}
+The Natural Language Tool-Kit is a large library for the Python programming language, which provides a large amount of functionality for processing language. It offers Part-of-Speech tagging, a working Wordnet as well as pre-made sentiment analysis algorithms - machine learning and rule-based.
+This toolkit offers a lot of inspiration in terms of methodologies for developing understanding of language, although it does not seem to touch upon the generation of text. It also has access to VADER and an implementation Wordnet, mentioned in the literature review.
+
+\subsection{Mark V Shaney}
+Mark V. Shaney was a Usenet newsgroup user whose posts were generated through forming Markov chains of other posts on the newsgroup. The posts would often fool people into believing the comments were written by a real person. It is an early example of people using machines to generate prose in order to see how people react. 
+
+\subsection{Twitter Bots}
+A growing trend on Twitter is the automation of services and behaviours for accounts wishing to increase their outreach and handle having incredibly large amounts of follower engagements. \\
+%
+Archie is a service which offers twitter automation for businesses and individuals, which implements a number of behaviours from targeting people talking about a particular market and engaging with followers and other twitter users. \\
+%
+Some of these bots however offer no purpose other than amusement and fooling people who may believe that they are human. These often generate tweets in a similar way to Mark V Shaney did, with Markov chain models that generate text through choosing the next word out of a corpus of user tweets probabilistically, based on words that precede it in that corpus.\\ 
 
 
 
+\subsection{Parody Generators}
+There are several projects which exist that generate text which looks believable, but upon closer inspection is clearly nonsense.
+%http://www.elsewhere.org/journal/pomo/
+%http://www.elsewhere.org/journal/wp-content/uploads/2005/11/tr-cs96-264.pdf
+The post-modern generator uses Recursive Transition Networks (RTNs) in order to produce text, instead of Markov models, noting that the text produced from them tend to be "choppy and incoherent". A RTN is a diagram showing how a task may be performed - essentially a directed graph with no cycles such that following the graph will take you from the start to the end of a task - in this case generating a sentence.\\
+%https://pdos.csail.mit.edu/archive/scigen/
+SCIgen is another similar project that generates random Computer Science research papers. These generated papers have notably been submitted to conferences suspected to have low submission standards in order to test how stringent they really are. It uses a "context-free grammar" to generate the texts, which is essentially a set of rules that describe the generation of all the possible sentences used within a generated paper. It consists of sentence templates as well as nouns, verbs, adjectives and adverbs which will be used to fill in the templates. 
+\\
 
-The use of acoustic waves for medical diagnosis, inspired by naval sonar, was initially developed in the 1940s \cite{gagliardi_ultrasonography_1996}.  By 1954, the first clinically useful cardiac ultrasound -- examining motion of the mitral valve in stenosis -- was reported \cite{edler_ultrasonic_1957}.  These early scans were one-dimensional images (`A-mode'), sometimes repeated to generate a time axis (`M-mode').   The sector-scanning probe was developed in the 1970s \cite{bom_ultrasonic_1971,griffith_sector_1974}, leading to the `B-mode' that a modern cardiologist would recognise as an echocardiogram.
+
+\subsection{NLG Systems}
+There are many examples of NLG systems which exist for a multitude of different purposes.
+STANDUP is a system which creates question and answer style jokes with the purpose of developing language skills in young children and those with disabilities affecting communication. The output jokes are puns, so must be generated with an understanding of word sense, synonyms and phonetic similarity in words. It aims to fill in a surface template for the words to be filled into, and present these puns through a simple GUI.\\
+
+%http://users.sussex.ac.uk/~christ/crs/gc/STANDUP_AAI_revised.pdf
+The STOP system was a system built to create letters encouraging smokers to stop smoking based on their responses to questionnaires about their smoking habits. It would use the information that they filled in to complete the leaflet, which was posted through the doors of the smokers. It was found that there was no significant effect on quitting smoking between those sent personalised letters or those who were sent regular ones.
+%http://homepages.abdn.ac.uk/e.reiter/pages/papers/rags99.pdf

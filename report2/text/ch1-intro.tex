@@ -10,11 +10,15 @@
 \minitoc
 
 \section{Overview of the System}
+This project attempts to create believable reviews for a movie given a corpus of text (such as reviews of that specific film taken from users of IMdB) which discusses it. 
 
-There are several systems I have implemented in this project. The first of which is a twitter bot designed to discuss film and drive traffic towards the NLG system's posts, which are hosted on a blog I have implemented in PHP with a mySQL database. It features a comments section and a feedback forum for collecting information on how effective the posts generated are.\\
-There are a few systems used to create reviews. A Markov Chain based model which creates review text based on a corpora and probabilistically determines what is to be posted.
-The second, a template driven system which Choses sentences from a template and attempts to fill them. 
+There are a collection of systems I have implemented for this project which range from simple to greater complexity, which attempt to create believable text in review or discursive form. \\
 
+The first system is a review website created in PHP, using a MySQL database to host content, which host movie reviews generated as well as to be a platform for collecting user data, feedback and analytics.\\
+
+The second system is a bot for the website Twitter, which uses Markov chains to reply to tweets discussing movies and post discussion in the tags for specific films, in order to drive traffic towards the review website as well as explore the ability of Markov chains to generate believable text.\\
+
+The next system is a collection of methods used in generating reviews for movies. The first being the use of a Markov Chain model on a corpus of movie review text. Next, which aims to be more insightful is a template-based system which mines sentiment from a corpus of text about a specific film as part of speech tagging to create text based on opinions expressed in the corpus of text given, and outputs a structured review. The third system attempts to use a Natural Language Generation methodology in creating a review, following the 5 part methodology proposed by Dale and Reiter.
 
 \section{Motivation}
 
@@ -22,19 +26,16 @@ The Internet is a vast resource for opinion, thoughts and discourse on many topi
 
 The applications of Natural Language Processing (NLP) and more specifically Natural Language Generation (NLG) are powerful in this domain.  Opinion mining and understanding of such a vast field of reviewers and people engaging in discussion can provide interesting data and context on the success of a film. Such methods are able to process and understand a very large corpus of text far faster than one may be able to read through all of the writings on a film manually. \\
 
-An issue with summarisation and opinion mining of corpora such as these is that they do not necessarily provide representative criticisms or feedback on a film in the user-facing output, often only chunks of text that are deemed the most representative and metrics that are as simple as a positive or negative rating, or a list of keywords that have been extracted.\\
-%come back to this?
-
-This project aims to create a system that solves these issues, and generates a review of a movie that is both coherent and insightful, related to the corpus of movie review text it is given.\\
+This project aims to create a system that addresses these issues, and generates a review of a movie that is both coherent and insightful, related to the corpus of movie review text it is given. It would prefer to be somewhat summarative of the corpus it is given, but due to the natural polarity of movie review text it would be difficult to engineer and assess quite how summarative a piece of work may be.\\
 
 A system of this kind could be employed in business - for example, reviews and articles about cinema can have a profound effect on their commercial success, and if enough respected reviewers pan a film it may become necessary to understand why - and a tool such as this could aid this process.\\
 
-It could also be employed at a consumer level in order for a user to quickly evaluate whether or not they wanted to watch a film or buy a product based on a vast amount of review text that exists rather than the opinion of a singular reviewer.
+It could also be employed at a consumer level in order for a user to quickly evaluate whether or not they wanted to watch a film or buy a product based on a vast amount of review text that exists rather than the opinion of a singular reviewer.\\
+As well as this, it may simply be used for entertainment purposes, to fool or generate conversation about a film in particular.\\
+
+
 
 \section{Contribution}
 
 
 \section{Thesis Structure}
-This thesis is structured as follows: In Chapter~\ref{ch:2-litreview} a detailed background research in the  area of \emph{Fraud Detection} is given. In Chapter~\ref{ch:3-design} the system design part is describe. 
- In chapter~\ref{ch:4-implementation} the implementation part of the system is given. Chapter~\ref{ch:5-testing} 
- consists of description of the testing techniques an the testing results. Finally, a conclusion and a direction of future work is given in  Chapter~\ref{ch:6-conclusion}. 

@@ -15,3 +15,37 @@ The primary aim of this project is to explore methods for text generation and th
 To develop a natural language generation system which picks points from multiple review texts and uses them to structure an informed review.\\
 To develop an online platform to host generated movie reviews which can gather feedback and data on the reception of said review.\\
 To develop an autonomous bot that can discuss movies (or at least reply with an opinion of a movie) over twitter. Ideally this would drive traffic towards the movie review blog which hosts reviews made by the bot.
+
+\section{Movie Review Generation}
+
+\subsection{Markov Chain for Text Generation}
+\subsection{Template-Based System for Text Generation}
+The design of this system started with the premise of filling out template sentences for segments of a review in a random fashion until a text of a satisfactory size is produced. The initial idea being that an introduction is filled in, then a brief plot synopsis, some text evaluating the performances of actors and noteworthy crew (such as the director or writers) and then a closing statement regarding whether or not its worth seeing a film.\\
+
+The first step of the template system is data gathering.
+
+It web scrapes a corpus of movie reviews for a given movie from IMdB. These are user reviews taken from a movie's reviews page, and an amount are taken sorted by their highest rating. Then it web scrapes plot synopsis, also from IMdB this is then summarized using the TextRank algorithm. It finally uses themoviedb's API to gather metadata about a film, such as cast crew and genre.\\
+
+
+The second step in this process is then forming an understanding of that data.
+First is the separation each review text into a large list of sentences so that they can be tagged and analyzed for sentiment.
+Categorise each sentence as about a particular topic or person (cast, crew, director), using the metadata gathered from the OMdB API to match sentences to these topics.\\
+
+The final step is then filling in the reviews templates until completion.
+Builds an introduction based on a template, a plot summary after that, a body of review text, and then a closing statement based on the template.
+Templates are filled with words determined by sentiment, and adjectives and adverbs mined from part of speech tagging sentences regarding the topic discussed in the template sentence.\\
+
+
+\subsection{NLG System}
+
+\section{Twitter Bot}
+The Twitter bot exists in order to drive traffic towards the reviews generated and also act as a test of generating text in shorter formats than review - for example the markov chains discussed earlier are much more believable if you don't let them go on for too long. The limit of 144 characters is certainly suitable for this.\\
+The bot itself uses a twitter API wrapper called Tweepy, which handles Twitter API requests required in order to make posts, search and navigate twitter.\\
+There are a number of behaviours programmed for the bot to gather attention and direct users towards the website. The first is simply the automated posting of links to movie reviews generated, with a template message that reads along the lines of "Read my review for #filmname here".\\
+The next behaviour is replying to posts which have been identified to be about the movie in question with comments generated from a markov chain of other tweets about the movie.\\ 
+
+
+\section{Blog Website}
+The design of the blog website is relatively simple. It is a Wordpress-like blogging website written in PHP, wish a MySQL database that stores the reviews, user information and the comments made and analytics for the site.\\
+I have chosen MySQL and PHP as they are languages I am familiar with, and have worked using before, as well as their being suitable for the task of a small blogging platform.\\
+The website itself is a front-page which lists paginated results for movie reviews written by the movie review generator, an interface for making/creating posts, and a way to view the reviews in full. It also has user comments for gathering qualitative feedback and page visits and engagements are tracked using Google analytics and a MySQL hit-counter.\\
