@@ -33,7 +33,7 @@ def newText(lim, n, table, twitter):
     chainCount = 0
     hasSuffix = True
 
-    while hasSuffix and chainCount < lim: # while we haven't exceeded the limit or have a suffix to continue with
+    while hasSuffix and " ".join(output) < lim: # while we haven't exceeded the limit or have a suffix to continue with
         suffixCount = len(table[idx0][1:]) # number of suffixes is every item in the table at idx0 past the first one
         if suffixCount == 1: # if we have one suffix there's only one potential word to continue the chain with
             output.append(table[idx0][1][0])

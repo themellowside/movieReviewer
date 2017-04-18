@@ -502,6 +502,6 @@ def scrapeIMDB(title):
 
 
 #templateReview()
-templateReview("Toy Story", withWordnet=True)
+templateReview("Get Out", withWordnet=True)
 #chaineyReview()
 
