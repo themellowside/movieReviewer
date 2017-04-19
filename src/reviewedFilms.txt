@@ -1,2 +1,2 @@
-Get Out*http://doc.gold.ac.uk/~tpalm003/reviews/admin.php?postID=3
-Moonlight*http://doc.gold.ac.uk/~tpalm003/reviews/admin.php?postID=2
+Get Out*http://doc.gold.ac.uk/~tpalm003/reviews/index.php?postID=3
+Moonlight*http://doc.gold.ac.uk/~tpalm003/reviews/index.php?postID=2

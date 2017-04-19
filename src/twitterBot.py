@@ -32,7 +32,16 @@ def runTombot():
             time.sleep(3600)  # Delay for half an hour
 
 
-            #tweet = newText(5 + int(random.random() * 27), 1, chain, True)
+        except TwythonError as e:
+            print e
+
+        try:
+            twitter = Twython(API_KEY, API_SECRET_KEY, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+
+            # now, generate a tweet advertising our generated movie reviews
+            # essentially from a template of texts that say such things as "read our review of [moviename] here: [link]"
+
+            # tweet = newText(5 + int(random.random() * 27), 1, chain, True)
             tweet = generateText(twitter, films)
 
             print "Generated tweet: ", tweet
@@ -46,6 +55,7 @@ def runTombot():
 
         except TwythonError as e:
             print e
+
         #for i in range(1, 7):
             #time.sleep(300)  # Delay for half an hour
             #print("Waiting...", i*5 , 'minutes so far')
@@ -102,7 +112,7 @@ def generateAdvert(reviews):
     #read our review of [title] here: [link]
     #Check our our thoughs on [title] here: [link]
 
-    introTexts = ["Read our review of" , "Read our review for ", "Check our our review of ", "See what we thought of ", "Have a look at our thoughts on ", "Take a look at our review of "]
+    introTexts = ["Read our review of ", "Read our review for ", "Check our our review of ", "See what we thought of ", "Have a look at our thoughts on ", "Take a look at our review of "]
     locationTexts = [" here: ", " at "]
 
     introtext = introTexts[int(random.random()*len(introTexts))]
