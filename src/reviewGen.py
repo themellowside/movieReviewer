@@ -1,3 +1,6 @@
+from chaineyReview import *
+
+
 def generateReview(filmtitle):
     content = determineContent(filmtitle)
     structuredContent = structureDocument(content)
@@ -7,6 +10,7 @@ def generateReview(filmtitle):
     return realiseDocument(docWReferringExp)
 
 def determineContent(filmtitle):
+    plotsummary, sentencesAboutCast, sentencesAboutCrew, sentencesAboutDirector, meta, genre, reception = getContent(filmTitle)
     content = []
     #content will be a series of opinions and statements relating to actors, directors, the film in general, a plot synopsis, the genre of the movie,
     ## and other things to flesh out the review in order to make it more like a review text than a list of sentiment tagged points
@@ -21,6 +25,9 @@ def determineContent(filmtitle):
 
 def structureDocument(content):
     #this method takes the content and decides where to make statements about what, semi-stochastically
+
+    #because the structure of a movie review is sort of generated along with the content this section wil
+
     structure = []
     return structure
 

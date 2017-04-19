@@ -54,39 +54,34 @@ def chaineyReview():
     else:
         print "It's not worth seeing this film."
 
-
-def templateReview(movieName, withWordnet):
-
+def getContent(movieName):
     synopsis, reviews = scrapeIMDB(movieName.replace(" ", "+"))
     from summa import summarizer
     plotsummary = summarizer.summarize(synopsis, ratio=0.05)
     reviewCorpora = ""
     for review in reviews:
         reviewCorpora += review
-    
+
     meta, genre = getMovieMeta(movieName.replace(" ", "+"))
 
     cast = meta.get("cast")
     crew = meta.get("crew")
 
-
     sentences = tokenize.sent_tokenize(reviewCorpora)
-    
-    review = ""
-    #create a list of names from cast and crew with their role / job
-    #look for name of role, job or the name of the person (or one of their names) in each sentence
+
+    # create a list of names from cast and crew with their role / job
+    # look for name of role, job or the name of the person (or one of their names) in each sentence
     #
 
-    sentencesAboutPeople = []
     sid = SentimentIntensityAnalyzer()
     reception = sid.polarity_scores(reviewCorpora)
 
-    sentencesAboutCast=[]
-    sentencesAboutCrew=[]
+    sentencesAboutCast = []
+    sentencesAboutCrew = []
     sentencesAboutDirector = []
     for sentence in sentences:
-        #check if sentence contains a name of a member of cast or crew
-        #if it does add it to a list of phrases discussing cast or crew members
+        # check if sentence contains a name of a member of cast or crew
+        # if it does add it to a list of phrases discussing cast or crew members
         sent = sid.polarity_scores(sentence)
         for person in cast:
             name = person.get('name')
@@ -100,11 +95,11 @@ def templateReview(movieName, withWordnet):
             castExists = False
             for assocname in assocnames:
                 if assocname in sentence:
-                    #print sentence, name, role
+                    # print sentence, name, role
 
                     for row in sentencesAboutCast:
                         if row[0] == name and row[1] == role:
-                            row[2].append([sentence,sent])
+                            row[2].append([sentence, sent])
                             castExists = True
                             break
                     if not castExists:
@@ -114,7 +109,6 @@ def templateReview(movieName, withWordnet):
 
                 if castappended:
                     break
-
 
         for person in crew:
             name = person.get('name')
@@ -136,7 +130,7 @@ def templateReview(movieName, withWordnet):
                             sentencesAboutDirector[2].append([sentence, sent])
                             dirAppended = True
                             break
-                if(dirAppended):
+                if (dirAppended):
                     break
 
             else:
@@ -158,6 +152,17 @@ def templateReview(movieName, withWordnet):
 
                     if crewappended:
                         break
+    return plotsummary, sentencesAboutCast, sentencesAboutCrew, sentencesAboutDirector, meta, genre, reception
+
+
+def templateReview(movieName, withWordnet):
+
+    plotsummary, sentencesAboutCast, sentencesAboutCrew, sentencesAboutDirector, meta, genre, reception = getContent(movieName)
+
+    review = ""
+
+
+
     introTemplates = loadTemplates('C:\Users\Thomas\Documents\CSY3\FYP\\reviewer\movieReviewer\src\introtemplates.txt')
     #introTemplates = loadTemplates('/Users/tom/Documents/CSY3/FYP/movieReviewer/src/introtemplates.txt')
 
