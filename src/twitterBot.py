@@ -26,20 +26,6 @@ def runTombot():
 
             # now, generate a tweet advertising our generated movie reviews
             # essentially from a template of texts that say such things as "read our review of [moviename] here: [link]"
-            advert = generateAdvert(films)
-            print "Generated ad: ", advert
-            twitter.update_status(status=advert)
-            time.sleep(3600)  # Delay for half an hour
-
-
-        except TwythonError as e:
-            print e
-
-        try:
-            twitter = Twython(API_KEY, API_SECRET_KEY, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-
-            # now, generate a tweet advertising our generated movie reviews
-            # essentially from a template of texts that say such things as "read our review of [moviename] here: [link]"
 
             # tweet = newText(5 + int(random.random() * 27), 1, chain, True)
             tweet = generateText(twitter, films)
@@ -55,6 +41,22 @@ def runTombot():
 
         except TwythonError as e:
             print e
+
+        try:
+            twitter = Twython(API_KEY, API_SECRET_KEY, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+
+            # now, generate a tweet advertising our generated movie reviews
+            # essentially from a template of texts that say such things as "read our review of [moviename] here: [link]"
+            advert = generateAdvert(films)
+            print "Generated ad: ", advert
+            twitter.update_status(status=advert)
+            time.sleep(3600)  # Delay for half an hour
+
+
+        except TwythonError as e:
+            print e
+
+
 
         #for i in range(1, 7):
             #time.sleep(300)  # Delay for half an hour

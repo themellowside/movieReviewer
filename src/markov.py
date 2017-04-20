@@ -32,8 +32,8 @@ def newText(lim, n, table, twitter):
     output = [] + table[idx0][0] ##PRETTY SURE THIS IS PASSING BY REFERENCE ONLY AND I DON'T KNOW WHY
     chainCount = 0
     hasSuffix = True
-
-    while hasSuffix and " ".join(output) < lim: # while we haven't exceeded the limit or have a suffix to continue with
+    executing = True
+    while hasSuffix and len(" ".join(output)) < lim and executing: # while we haven't exceeded the limit or have a suffix to continue with
         suffixCount = len(table[idx0][1:]) # number of suffixes is every item in the table at idx0 past the first one
         if suffixCount == 1: # if we have one suffix there's only one potential word to continue the chain with
             output.append(table[idx0][1][0])
@@ -46,7 +46,10 @@ def newText(lim, n, table, twitter):
             for i in range(1, len(table[idx0])): # now we count up including the weighting
                 count += table[idx0][i][1]
                 if weight < count: # if weight < count we've got a hit, and we choose this output
-                    output.append(table[idx0][i][0])
+                    if(len(" ".join(output)) + len(table[idx0][i][0] + 1) < lim ):
+                        output.append(table[idx0][i][0])
+                    else:
+                        executing = False
                     break
 
         newSuffix = output[len(output)-n:len(output)] # the new suffix
