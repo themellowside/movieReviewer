@@ -1,4 +1,5 @@
 [director]'s [moviename], starring [actor] as [role], and [actor2] as [role2], is an [movieadjective] film of the [genre] genre.
 [director]'s [moviename], is a [genre] which is an [movieadjective] example of it's genre.
 [moviename], directed by [director], starring [actor] as [role] and [actor2] as [role2] is a [genre] movie of the [movieadjective] kind.
+Simply put, [moviename] is the [movieadjective] film of the year. Directed by [director], and starring [actor] as [role].
 

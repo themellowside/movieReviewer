@@ -57,7 +57,8 @@ def chaineyReview():
 def getContent(movieName):
     synopsis, reviews = scrapeIMDB(movieName.replace(" ", "+"))
     from summa import summarizer
-    plotsummary = summarizer.summarize(synopsis, ratio=0.05)
+    if len(synopsis) > 0:
+        plotsummary = summarizer.summarize(synopsis, ratio=0.05)
     reviewCorpora = ""
     for review in reviews:
         reviewCorpora += review
@@ -192,8 +193,10 @@ def templateReview(movieName, withWordnet):
 
     #http://www.nltk.org/howto/chunk.html
     #
-
+    print intro
     review += generateSentence(intro, sentencesAboutDirector, sentencesAboutCast, sentencesAboutCrew, movieName, genre, reception, withWordnet) + " "
+
+    print review
     review += plotsummary + " "
     for sentence in body:
         #print sentence
@@ -285,6 +288,7 @@ def generateSentence(sentence, directorSent, castSent, crewSent, moviename, genr
         #print "casent:", casent
         sentence = sentence.replace('[actor]', actor)
         sentence = sentence.replace('[role]', role)
+        print castSent
         if '[actoradverb]' in sentence:
             #print "casent:", casent[0]
             #print "directorSent:", directorSent[0]
@@ -507,6 +511,6 @@ def scrapeIMDB(title):
 
 
 #templateReview()
-templateReview("Get Out", withWordnet=True)
+templateReview("Sing", withWordnet=True)
 #chaineyReview()
 

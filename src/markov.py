@@ -46,7 +46,7 @@ def newText(lim, n, table, twitter):
             for i in range(1, len(table[idx0])): # now we count up including the weighting
                 count += table[idx0][i][1]
                 if weight < count: # if weight < count we've got a hit, and we choose this output
-                    if(len(" ".join(output)) + len(table[idx0][i][0] + 1) < lim ):
+                    if(len(" ".join(output)) + len(table[idx0][i][0]) + 1 < lim ):
                         output.append(table[idx0][i][0])
                     else:
                         executing = False
