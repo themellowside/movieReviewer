@@ -12,14 +12,18 @@ from nltk import word_tokenize
 def posTagSentences(sentences):
     #returns a list of sentences that are tagged in part of speech
     #take sentences, pos tag them all
-    print sentences
+    #print 'printing sentences'
+    #print sentences
     sents = sentences[2]
     tagged_sents = []
 
     for sent in sents:
         #print sent
-        #print sent
         #print sent[0]
+        #print 'printing sent', sent[0]
+        #print 'sent'
+        #print sent
+        #print
         tagged_sents.append(nltk.pos_tag(word_tokenize(sent[0])))
 
     #print "tagged sents: ", tagged_sents
@@ -43,13 +47,19 @@ def getAllOfType(type, taggedSent):
 def chooseWordOfType(wordsOfType):
     #tags sentences, gets all words of that type and then picks a word of that type that is most summarative of them all
     #print wordsOfType
-
-    return wordsOfType[int(random.random()*len(wordsOfType))]
-
+    if len(wordsOfType) > 0:
+        return wordsOfType[int(random.random()*len(wordsOfType))]
+    else:
+        return
 def getAssocWord(sentences, type):
 
     sentences = posTagSentences(sentences)
     wordsOfType = getAllOfType(type, sentences)
+    if(len(wordsOfType) == 0):
+        if type == 'adjective':
+            return 'great'
+        else:
+            return 'excellently'
     word = chooseWordOfType(wordsOfType)
     #print word
     return word

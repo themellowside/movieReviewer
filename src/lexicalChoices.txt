@@ -1,0 +1,24 @@
+[
+    [body,
+        [adverbPhrase, []]
+        [adjectivePhrase, []]
+        [haveWorkedOn, []]
+        [features, []]
+        [conj, []]
+        [comparativeSentimentPhrase, []]
+    ]
+
+    [intro,
+        [introFilmSentimentPhrase, []]
+        [introActorSentimentPhrase, []]
+        [introDirectorSentimentPhrase, []]
+        [starring, []]
+    ]
+
+    [outro,
+        [outroGenreSentimentPhrase, []]
+        [outroDirectorSentimentPhrase, []]
+        [outroActorSentimentPhrase, []]
+        [outroFilmSentimentPhrase, []]
+    ]
+]
