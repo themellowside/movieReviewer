@@ -765,10 +765,10 @@ def realiseDocument(document):
 
  ### Main Body Phrase Collection ####
 
-posCastPhrases = ['in one of the best works of their career','in a career defining performance', ', giving a career defining performance', ', really breating life into the role', ', selling the role perfectly', ', in a memorable performance']
-negCastPhrases = ['in one of the worst works of their career',', giving a forgettable performance', ', has really embarassed theirself in this role', 'and is not worth writing home about']
-posCrewPhrases = ['doing an excellent job','in a career defining performance', ', giving a career defining performance', ', really breating life into the role', ', selling the role perfectly', ', in a memorable performance']
-negCrewPhrases = ['in one of the worst works of their career',', giving a forgettable performance', ', has really embarassed theirself in this role', 'and is not worth writing home about']
+posCastPhrases = ['in one of the best works of their career','in a career defining performance', 'giving a career defining performance', 'really breating life into the role', 'selling the role perfectly', 'in a memorable performance']
+negCastPhrases = ['in one of the worst works of their career',', giving a forgettable performance', 'has really embarassed theirself in this role', 'and is not worth writing home about']
+posCrewPhrases = ['doing an excellent job','in a career defining performance', 'giving a career defining performance', 'really breating life into the role', 'selling the role perfectly', 'in a memorable performance']
+negCrewPhrases = ['in one of the worst works of their career',', giving a forgettable performance', 'has really embarassed theirself in this role', 'and is not worth writing home about']
 
 
 
