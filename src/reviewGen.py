@@ -70,14 +70,21 @@ def determineContent(filmtitle):
                     mostMentioned = crewMemb
 
             talkableCrew.append(mostMentioned)
+            mentionedNames.append(mostMentioned[0])
+
     else:
         for crew in sentencesAboutCrew:
             talkableCrew.append(crew)
+            mentionedNames.append(crew[0])
 
     castNames = []
     for cast in talkableCast:
         #print cast
         castNames.append([cast[0], cast[1]])
+        #print cast[0]
+        mentionedNames.append(cast[0])
+
+    mentionedNames.append(sentencesAboutDirector[0])
 
     content['previous'] = getAdditionalContent(filmtitle, castNames, sentencesAboutDirector[0])
     content['noteworthyCast'] = talkableCast
@@ -86,6 +93,9 @@ def determineContent(filmtitle):
     #take the names of the cast members and see if they have any incidence in past movies
     #print content.get('noteworthyCrew')
     #print content
+
+    print mentionedNames
+
     return content
 
 def structureDocument(content):
@@ -742,22 +752,78 @@ def fulfil(doc):
     return ff
 
 def generateReferringExpression(document):
+    #also here i'm doing punctuation too
+
     #also known as anaphora
+
     #this is sort of cyclic - needs to have content determination and lexical choice
 
     #inserts referring expressions regarding the document, also add some templated particles/speech elements to seem more personable
     #first, given a list of names, replace names and insert things to names to make them referring to earlier sentences.
     #Also, handle capital letters, full stops
+    nameCounts = []
+    #quickly remove duplicates from mentined names
+    men = mentionedNames
+
+    ment = list(set(men))
+
+    for mentionedName in ment:
+        nameCounts.append([mentionedName, 0])
+
+    refExps = ['as you may have already guessed by the tone of this review', 'again', '(and it goes without saying)', 'and again', 'bringing them up again']
+    for doc in document:
+        if len(doc) > 0:
+            for nameCount in nameCounts:
+                for i in range(0, len(doc[0])):
+                    if nameCount[0] == doc[0][i]:
+                        nameCount[1] += 1
+                        if nameCount[1] > 1:
+                            #replace name with a different way of saying it
+                            doc[0][i] = doc[0][i].split(' ')[-1]
+                            if random.random() > 0.5:
+                                refExpIdx = int(random.random() * len(refExps))
+                                refExp = refExps[refExpIdx]
+                                del(refExps[refExpIdx])
+                                if(i == 0):
+                                    doc[0][i] = refExp + ' ' + doc[0][i]
+                                else:
+                                    doc[0][i] = doc[0][i] + ' ' + refExp
+    #print nameCounts
+
+
     return document
 
 def realiseDocument(document):
     #converst structured document into text (hopefully this is mostly verbatim)
 
     text = ""
+    sCount = 0
     for sentence in document:
+        sCount += 1
+
         if len(sentence) > 0:
             for word in sentence[0]:
                 text = text + ' ' + word
+            if sCount == len(document):
+                for i in range(0, len(sentence[0]), 2):
+                    text = text + ' ' + sentence[0][i]
+                    text = text + ' ' + sentence[0][i+1]
+                    text = text + ','
+
+            elif (sCount > 3):
+                text = text + '.'
+            else:
+                text = text + ','
+
+    text = text[0].upper() + text[1:]
+    print text[0]
+    for i in range(0, len(text)):
+        if(text[i]== '.'):
+            for j in range(i, len(text)):
+                if text[j].isalpha():
+
+                    text = text[0:j] + text[j].upper() + text[j+1:]
+                    break
 
 
     return text
@@ -766,9 +832,9 @@ def realiseDocument(document):
  ### Main Body Phrase Collection ####
 
 posCastPhrases = ['in one of the best works of their career','in a career defining performance', 'giving a career defining performance', 'really breating life into the role', 'selling the role perfectly', 'in a memorable performance']
-negCastPhrases = ['in one of the worst works of their career',', giving a forgettable performance', 'has really embarassed theirself in this role', 'and is not worth writing home about']
+negCastPhrases = ['in one of the worst works of their career','giving a forgettable performance', 'has really embarassed theirself in this role', 'and is not worth writing home about']
 posCrewPhrases = ['doing an excellent job','in a career defining performance', 'giving a career defining performance', 'really breating life into the role', 'selling the role perfectly', 'in a memorable performance']
-negCrewPhrases = ['in one of the worst works of their career',', giving a forgettable performance', 'has really embarassed theirself in this role', 'and is not worth writing home about']
+negCrewPhrases = ['in one of the worst works of their career','giving a forgettable performance', 'has really embarassed theirself in this role', 'and is not worth writing home about']
 
 
 
@@ -781,7 +847,7 @@ posComparativeSentimentPhrases = ['in a much less memorable movie', 'in a far le
 negComparativeSentimentPhrases = ['in a much better movie than this']
 
 ####Intro Phrase Handling####
-introPosDirectorSentimentPhrases = ['in the defining work of his career', 'as a true project of passion', 'and is probably his most striking work']
+introPosDirectorSentimentPhrases = ['in the defining work of his career', 'as a true project of passion', 'and in probably his most striking work']
 introNegDirectorSentimentPhrases = ['provides a poor effort', 'doesn\'t quite hit the mark', 'has seemingly turned up for the pay-cheque']
 
 
@@ -798,8 +864,9 @@ negOutroGenreSentimentPhrases = ['fans of the genre might enjoy this', 'you coul
 negOutroActorSentimentPhrases = ['sells this movie short', 'really makes this movie hard to bare', 'is very hard to like', 'gives an underwhelming performance']
 negOutroDirectorSentimentPhrases = ['has not delivered', 'is going to have to make up for this', 'has missed the mark']
 
+mentionedNames = []
 
 
-print generateReview("Pulp Fiction")
+print generateReview("Fargo")
 
 

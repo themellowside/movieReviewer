@@ -46,36 +46,13 @@ def getContent(movieName):
     sentencesAboutCast = []
     sentencesAboutCrew = []
     sentencesAboutDirector = []
+
+
+
     for sentence in sentences:
         # check if sentence contains a name of a member of cast or crew
         # if it does add it to a list of phrases discussing cast or crew members
         sent = sid.polarity_scores(sentence)
-        for person in cast:
-            name = person.get('name')
-            role = person.get('character')
-            assocnames = []
-            assocnames.append(name)
-            assocnames.append(role)
-            assocnames = getAssociatedWords(assocnames)
-
-            castappended = False
-            castExists = False
-            for assocname in assocnames:
-                if assocname in sentence:
-                    # print sentence, name, role
-
-                    for row in sentencesAboutCast:
-                        if row[0] == name and row[1] == role:
-                            row[2].append([sentence, sent])
-                            castExists = True
-                            break
-                    if not castExists:
-                        sentencesAboutCast.append([name, role, [[sentence, sent]]])
-
-                    castappended = True
-
-                if castappended:
-                    break
 
         for person in crew:
             name = person.get('name')
@@ -119,6 +96,42 @@ def getContent(movieName):
 
                     if crewappended:
                         break
+
+        for person in cast:
+            #check if director is also a cast member
+            castIsCrew = False
+            for oP in crew:
+                if oP.get('name') == person.get('name'):
+                    castIsCrew = True
+
+            if not castIsCrew:
+                name = person.get('name')
+                role = person.get('character')
+                assocnames = []
+                assocnames.append(name)
+                assocnames.append(role)
+                assocnames = getAssociatedWords(assocnames)
+
+                castappended = False
+                castExists = False
+                for assocname in assocnames:
+                    if assocname in sentence:
+                        # print sentence, name, role
+
+                        for row in sentencesAboutCast:
+                            if row[0] == name and row[1] == role:
+                                row[2].append([sentence, sent])
+                                castExists = True
+                                break
+                        if not castExists:
+                            sentencesAboutCast.append([name, role, [[sentence, sent]]])
+
+                        castappended = True
+
+                    if castappended:
+                        break
+
+
     return plotsummary, sentencesAboutCast, sentencesAboutCrew, sentencesAboutDirector, meta, genre, reception
 
 def getAdditionalContent(movieName, castNames, director):
@@ -200,7 +213,7 @@ def scrapeIMDB(title):
     id = getimdbID(title)
     synopsis = scrapeSynopsis(id)
     #print synopsis
-    revs = scrapeMovieReviews(id, 2)
+    revs = scrapeMovieReviews(id, 3)
     return synopsis, revs
 
 def scrapeMovieReviews(imdbID, lim):
@@ -325,7 +338,7 @@ def getMovieMeta(movieName):
 
 def getAssociatedWords(names):
     assocNames = []
-    disallowed = ['the', 'man', 'woman', 'from', 'uncredited', 'boy', 'girl', 'staff', '(uncredited)', 'for']
+    disallowed = ['the', 'man', 'woman', 'from', 'uncredited', 'boy', 'girl', 'staff', '(uncredited)', 'for', 'with']
     for name in names:
         subnames = name.split(" ")
 
