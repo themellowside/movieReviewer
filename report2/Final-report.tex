@@ -38,6 +38,9 @@
 
 % The science-type option: numerical in-text citation with references in order of appearance.
 \usepackage[style=numeric-comp, sorting=none, backend=biber, doi=false, isbn=false]{biblatex}
+
+\usepackage{graphicx}
+\usepackage{pdfpages}
 \newcommand*{\bibtitle}{References}
 
 % The humanities-type option: author-year in-text citation with an alphabetical works cited.
@@ -192,13 +195,13 @@
 
 \include{text/ch3-design}
 
-\include{text/ch4-implementation}
 
-\include{text/ch5-testing}
 
-\include{text/ch6-evaluation}
+\include{text/ch4-testing}
 
-\include{text/ch7-conclusion}
+\include{text/ch5-evaluation}
+
+\include{text/ch6-conclusion}
 
 
 
@@ -209,6 +212,12 @@
 %% APPENDICES %% 
 % Starts lettered appendices, adds a heading in table of contents, and adds a
 %    page that just says "Appendices" to signal the end of your main text.
+
+
+
+
+
+
 \startappendices
 % Add or remove any appendices you'd like here:
 
@@ -217,11 +226,10 @@
 
 %%%%% REFERENCES
 
-
+\printbibliography
 \setlength{\baselineskip}{0pt} % JEM: Single-space References
 
 {\renewcommand*\MakeUppercase[1]{#1}%
-\printbibliography[heading=bibintoc,title={\bibtitle}]}
 
 
 

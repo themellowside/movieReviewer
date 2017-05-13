@@ -752,9 +752,8 @@ def fulfil(doc):
     return ff
 
 def generateReferringExpression(document):
-    #also here i'm doing punctuation too
 
-    #also known as anaphora
+    #also known as anaphora resolution
 
     #this is sort of cyclic - needs to have content determination and lexical choice
 
