@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.15)  13 MAY 2017 02:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.15)  13 MAY 2017 18:13
 entering extended mode
 **./Final-report.tex
 (Final-report.tex
@@ -1935,7 +1935,26 @@ File: greek.lbx 2016/05/14 v3.4 biblatex localization (PK/JW/AB)
 )
 (Final-report.aux (text/abbreviations.aux) (text/ch1-intro.aux)
 (text/ch2-litreview.aux) (text/ch3-design.aux) (text/ch4-testing.aux)
-(text/ch5-evaluation.aux) (text/ch6-conclusion.aux) (text/appendix-1.aux))
+(text/ch5-evaluation.aux) (text/ch6-conclusion.aux) (text/appendix-1.aux
+
+LaTeX Warning: Label `fig:28daysummary' multiply defined.
+
+
+LaTeX Warning: Label `fig:engagements' multiply defined.
+
+
+LaTeX Warning: Label `fig:impressions' multiply defined.
+
+
+LaTeX Warning: Label `fig:uniquesessions' multiply defined.
+
+
+LaTeX Warning: Label `fig:pageviews' multiply defined.
+
+
+LaTeX Warning: Label `fig:sessionduration' multiply defined.
+
+))
 \openout1 = `Final-report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
@@ -1952,8 +1971,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
 LaTeX Font Info:    ... okay on input line 94.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 94.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 94.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 94.
@@ -2473,42 +2491,81 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
 
 
-] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
+]
+<figures/twitter_analytics/28daysummary.png, id=610, 974.64125pt x 251.94125pt>
+File: figures/twitter_analytics/28daysummary.png Graphic file (type png)
+<use figures/twitter_analytics/28daysummary.png>
+Package pdftex.def Info: figures/twitter_analytics/28daysummary.png used on inp
+ut line 22.
+(pdftex.def)             Requested size: 294.76903pt x 76.1942pt.
+
+<figures/twitter_analytics/engagements.png, id=612, 292.09125pt x 225.84375pt>
+File: figures/twitter_analytics/engagements.png Graphic file (type png)
+
+<use figures/twitter_analytics/engagements.png>
+Package pdftex.def Info: figures/twitter_analytics/engagements.png used on inpu
+t line 30.
+(pdftex.def)             Requested size: 294.76903pt x 227.93495pt.
+
+<figures/twitter_analytics/impressions.png, id=613, 1166.3575pt x 323.2075pt>
+File: figures/twitter_analytics/impressions.png Graphic file (type png)
+
+<use figures/twitter_analytics/impressions.png>
+Package pdftex.def Info: figures/twitter_analytics/impressions.png used on inpu
+t line 37.
+(pdftex.def)             Requested size: 294.76903pt x 81.67952pt.
+ [28] [29 <./figures/twitter_analytics/28daysummary.png> <./figures/twitter_ana
+lytics/engagements.png> <./figures/twitter_analytics/impressions.png>]
+<figures/google_analytics/uniqueSessions.png, id=627, 922.44624pt x 641.39626pt
+>
+File: figures/google_analytics/uniqueSessions.png Graphic file (type png)
+ <use figures/google_analytics/uniqueSessions.png>
+Package pdftex.def Info: figures/google_analytics/uniqueSessions.png used on in
+put line 55.
+(pdftex.def)             Requested size: 357.93796pt x 248.88101pt.
+ [30]
+<figures/google_analytics/pageviews.png, id=632, 937.5025pt x 205.76875pt>
+File: figures/google_analytics/pageviews.png Graphic file (type png)
+
+<use figures/google_analytics/pageviews.png>
+Package pdftex.def Info: figures/google_analytics/pageviews.png used on input l
+ine 62.
+(pdftex.def)             Requested size: 357.93796pt x 78.56027pt.
+
+<figures/google_analytics/sessionDuration.png, id=633, 937.5025pt x 205.76875pt
+>
+File: figures/google_analytics/sessionDuration.png Graphic file (type png)
+ <use figures/google_analytics/sessionDuration.png>
+Package pdftex.def Info: figures/google_analytics/sessionDuration.png used on i
+nput line 68.
+(pdftex.def)             Requested size: 357.93796pt x 78.56027pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 36--39
+[31 <./figures/google_analytics/uniqueSessions.png> <./figures/google_analytics
+/pageviews.png> <./figures/google_analytics/sessionDuration.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 83--85
+
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--47
-
- []
-
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
-
- []
-
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
-
- []
-
-) [32]
+[33]) [34]
 \openout2 = `text/ch6-conclusion.aux'.
 
  (text/ch6-conclusion.tex
@@ -2518,7 +2575,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
 
-[33
+[35
 
 
 
@@ -2527,7 +2584,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--20
 
  []
 
-[34]
+[36]
 Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
@@ -2537,33 +2594,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
 
-[35]) [36]
-
-LaTeX Warning: Empty bibliography on input line 218.
-
-[37
+[37]) [38] [39
 
 
-] [38]
+] [40]
 \openout2 = `text/appendix-1.aux'.
 
  (text/appendix-1.tex
-<figures/twitter_analytics/28daysummary.png, id=643, 974.64125pt x 251.94125pt>
 File: figures/twitter_analytics/28daysummary.png Graphic file (type png)
+
 <use figures/twitter_analytics/28daysummary.png>
 Package pdftex.def Info: figures/twitter_analytics/28daysummary.png used on inp
 ut line 10.
 (pdftex.def)             Requested size: 294.76903pt x 76.1942pt.
-
-<figures/twitter_analytics/engagements.png, id=645, 292.09125pt x 225.84375pt>
 File: figures/twitter_analytics/engagements.png Graphic file (type png)
 
 <use figures/twitter_analytics/engagements.png>
 Package pdftex.def Info: figures/twitter_analytics/engagements.png used on inpu
 t line 16.
 (pdftex.def)             Requested size: 294.76903pt x 227.93495pt.
-
-<figures/twitter_analytics/impressions.png, id=646, 1166.3575pt x 323.2075pt>
 File: figures/twitter_analytics/impressions.png Graphic file (type png)
 
 <use figures/twitter_analytics/impressions.png>
@@ -2571,7 +2620,7 @@ Package pdftex.def Info: figures/twitter_analytics/impressions.png used on inpu
 t line 22.
 (pdftex.def)             Requested size: 294.76903pt x 81.67952pt.
 
-<figures/twitter_analytics/likes.png, id=647, 282.05376pt x 174.6525pt>
+<figures/twitter_analytics/likes.png, id=679, 282.05376pt x 174.6525pt>
 File: figures/twitter_analytics/likes.png Graphic file (type png)
 
 <use figures/twitter_analytics/likes.png>
@@ -2579,7 +2628,7 @@ Package pdftex.def Info: figures/twitter_analytics/likes.png used on input line
  28.
 (pdftex.def)             Requested size: 294.76903pt x 182.53773pt.
 
-<figures/twitter_analytics/linkclicks.png, id=648, 281.05pt x 188.705pt>
+<figures/twitter_analytics/linkclicks.png, id=680, 281.05pt x 188.705pt>
 File: figures/twitter_analytics/linkclicks.png Graphic file (type png)
 
 <use figures/twitter_analytics/linkclicks.png>
@@ -2587,7 +2636,7 @@ Package pdftex.def Info: figures/twitter_analytics/linkclicks.png used on input
  line 34.
 (pdftex.def)             Requested size: 294.76903pt x 197.92725pt.
 
-<figures/twitter_analytics/replies.png, id=649, 282.05376pt x 199.74625pt>
+<figures/twitter_analytics/replies.png, id=681, 282.05376pt x 199.74625pt>
 File: figures/twitter_analytics/replies.png Graphic file (type png)
 
 <use figures/twitter_analytics/replies.png>
@@ -2595,39 +2644,33 @@ Package pdftex.def Info: figures/twitter_analytics/replies.png used on input li
 ne 40.
 (pdftex.def)             Requested size: 294.76903pt x 208.76442pt.
 
-<figures/twitter_analytics/retweets.png, id=650, 285.065pt x 193.72375pt>
+<figures/twitter_analytics/retweets.png, id=682, 285.065pt x 193.72375pt>
 File: figures/twitter_analytics/retweets.png Graphic file (type png)
 
 <use figures/twitter_analytics/retweets.png>
 Package pdftex.def Info: figures/twitter_analytics/retweets.png used on input l
 ine 46.
 (pdftex.def)             Requested size: 294.76903pt x 200.31805pt.
-
-<figures/google_analytics/uniqueSessions.png, id=651, 922.44624pt x 641.39626pt
->
 File: figures/google_analytics/uniqueSessions.png Graphic file (type png)
- <use figures/google_analytics/uniqueSessions.png>
+
+<use figures/google_analytics/uniqueSessions.png>
 Package pdftex.def Info: figures/google_analytics/uniqueSessions.png used on in
 put line 56.
 (pdftex.def)             Requested size: 294.76903pt x 204.95738pt.
-
-<figures/google_analytics/pageviews.png, id=652, 937.5025pt x 205.76875pt>
 File: figures/google_analytics/pageviews.png Graphic file (type png)
 
 <use figures/google_analytics/pageviews.png>
 Package pdftex.def Info: figures/google_analytics/pageviews.png used on input l
 ine 62.
 (pdftex.def)             Requested size: 294.76903pt x 64.69504pt.
-
-<figures/google_analytics/sessionDuration.png, id=653, 937.5025pt x 205.76875pt
->
 File: figures/google_analytics/sessionDuration.png Graphic file (type png)
- <use figures/google_analytics/sessionDuration.png>
+
+<use figures/google_analytics/sessionDuration.png>
 Package pdftex.def Info: figures/google_analytics/sessionDuration.png used on i
 nput line 68.
 (pdftex.def)             Requested size: 294.76903pt x 64.69504pt.
 
-<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=654, 
+<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=683, 
 794.97pt x 614.295pt>
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
@@ -2644,7 +2687,7 @@ Package pdftex.def Info: "figures/turinglike_results/Review Feedback - reviewEx
 cerpt (1)".pdf used on input line 76.
 (pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
 
-<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=657, 
+<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=686, 
 page=1, 794.97pt x 614.295pt>
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
@@ -2665,10 +2708,10 @@ cerpt (1)".pdf, page1 used on input line 76.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39
+ [41
 
 ]
-[40]
+[42]
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
 
@@ -2693,8 +2736,8 @@ hic file (type pdf)
 Package pdftex.def Info: "figures/turinglike_results/Review Feedback - reviewEx
 cerpt (1)".pdf, page1 used on input line 76.
 (pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
- [41 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
-<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=682, 
+ [43 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
+<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=711, 
 page=2, 794.97pt x 614.295pt>
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
@@ -2720,8 +2763,8 @@ hic file (type pdf)
 Package pdftex.def Info: "figures/turinglike_results/Review Feedback - reviewEx
 cerpt (1)".pdf, page2 used on input line 76.
 (pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
- [42 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
-<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=688, 
+ [44 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
+<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=717, 
 page=3, 794.97pt x 614.295pt>
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
@@ -2747,8 +2790,8 @@ hic file (type pdf)
 Package pdftex.def Info: "figures/turinglike_results/Review Feedback - reviewEx
 cerpt (1)".pdf, page3 used on input line 76.
 (pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
- [43 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
-<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=694, 
+ [45 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
+<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=723, 
 page=4, 794.97pt x 614.295pt>
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
@@ -2774,8 +2817,8 @@ hic file (type pdf)
 Package pdftex.def Info: "figures/turinglike_results/Review Feedback - reviewEx
 cerpt (1)".pdf, page4 used on input line 76.
 (pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
- [44 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
-<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=700, 
+ [46 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
+<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=729, 
 page=5, 794.97pt x 614.295pt>
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
@@ -2801,8 +2844,8 @@ hic file (type pdf)
 Package pdftex.def Info: "figures/turinglike_results/Review Feedback - reviewEx
 cerpt (1)".pdf, page5 used on input line 76.
 (pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
- [45 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
-<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=706, 
+ [47 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
+<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=736, 
 page=6, 794.97pt x 614.295pt>
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
@@ -2828,8 +2871,8 @@ hic file (type pdf)
 Package pdftex.def Info: "figures/turinglike_results/Review Feedback - reviewEx
 cerpt (1)".pdf, page6 used on input line 76.
 (pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
- [46 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
-<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=712, 
+ [48 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
+<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=742, 
 page=7, 794.97pt x 614.295pt>
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
@@ -2855,8 +2898,8 @@ hic file (type pdf)
 Package pdftex.def Info: "figures/turinglike_results/Review Feedback - reviewEx
 cerpt (1)".pdf, page7 used on input line 76.
 (pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
- [47 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
-<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=719, 
+ [49 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
+<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=748, 
 page=8, 794.97pt x 614.295pt>
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
@@ -2882,8 +2925,8 @@ hic file (type pdf)
 Package pdftex.def Info: "figures/turinglike_results/Review Feedback - reviewEx
 cerpt (1)".pdf, page8 used on input line 76.
 (pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
- [48 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
-<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=725, 
+ [50 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
+<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=754, 
 page=9, 794.97pt x 614.295pt>
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
@@ -2909,8 +2952,8 @@ hic file (type pdf)
 Package pdftex.def Info: "figures/turinglike_results/Review Feedback - reviewEx
 cerpt (1)".pdf, page9 used on input line 76.
 (pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
- [49 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
-<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=731, 
+ [51 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>]
+<"figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf, id=760, 
 page=10, 794.97pt x 614.295pt>
 File: "figures/turinglike_results/Review Feedback - reviewExcerpt (1)".pdf Grap
 hic file (type pdf)
@@ -2936,8 +2979,8 @@ hic file (type pdf)
 Package pdftex.def Info: "figures/turinglike_results/Review Feedback - reviewEx
 cerpt (1)".pdf, page10 used on input line 76.
 (pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
- [50 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>] <f
-igures/preliminaryReport2.pdf, id=737, 614.295pt x 794.97pt>
+ [52 <./figures/turinglike_results/Review Feedback - reviewExcerpt (1).pdf>] <f
+igures/preliminaryReport2.pdf, id=766, 614.295pt x 794.97pt>
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
 <use figures/preliminaryReport2.pdf>
@@ -2948,7 +2991,7 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf used on input line 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 
-<figures/preliminaryReport2.pdf, id=740, page=1, 614.295pt x 794.97pt>
+<figures/preliminaryReport2.pdf, id=769, page=1, 614.295pt x 794.97pt>
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
 <use figures/preliminaryReport2.pdf, page 1>
@@ -2961,7 +3004,7 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf, page1 used on input li
 ne 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [51]
+ [53]
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
 <use figures/preliminaryReport2.pdf, page 1>
@@ -2980,7 +3023,7 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf, page1 used on input li
 ne 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [52 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=77
+ [54 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=80
 5, page=2, 614.295pt x 794.97pt>
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
@@ -3000,8 +3043,8 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf, page2 used on input li
 ne 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [53 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=78
-1, page=3, 614.295pt x 794.97pt>
+ [55 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=81
+0, page=3, 614.295pt x 794.97pt>
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
 <use figures/preliminaryReport2.pdf, page 3>
@@ -3020,8 +3063,8 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf, page3 used on input li
 ne 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [54 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=78
-6, page=4, 614.295pt x 794.97pt>
+ [56 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=81
+5, page=4, 614.295pt x 794.97pt>
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
 <use figures/preliminaryReport2.pdf, page 4>
@@ -3040,8 +3083,8 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf, page4 used on input li
 ne 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [55 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=79
-1, page=5, 614.295pt x 794.97pt>
+ [57 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=82
+0, page=5, 614.295pt x 794.97pt>
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
 <use figures/preliminaryReport2.pdf, page 5>
@@ -3060,8 +3103,8 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf, page5 used on input li
 ne 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [56 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=79
-6, page=6, 614.295pt x 794.97pt>
+ [58 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=82
+5, page=6, 614.295pt x 794.97pt>
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
 <use figures/preliminaryReport2.pdf, page 6>
@@ -3080,7 +3123,7 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf, page6 used on input li
 ne 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [57 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=80
+ [59 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=83
 1, page=7, 614.295pt x 794.97pt>
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
@@ -3100,7 +3143,7 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf, page7 used on input li
 ne 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [58 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=80
+ [60 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=83
 6, page=8, 614.295pt x 794.97pt>
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
@@ -3120,8 +3163,8 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf, page8 used on input li
 ne 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [59 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=81
-5, page=9, 614.295pt x 794.97pt>
+ [61 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=84
+4, page=9, 614.295pt x 794.97pt>
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
 <use figures/preliminaryReport2.pdf, page 9>
@@ -3140,8 +3183,8 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf, page9 used on input li
 ne 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [60 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=83
-0, page=10, 614.295pt x 794.97pt>
+ [62 <./figures/preliminaryReport2.pdf>] <figures/preliminaryReport2.pdf, id=85
+9, page=10, 614.295pt x 794.97pt>
 File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 
 <use figures/preliminaryReport2.pdf, page 10>
@@ -3160,8 +3203,8 @@ File: figures/preliminaryReport2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/preliminaryReport2.pdf, page10 used on input l
 ine 82.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [61 <./figures/preliminaryReport2.pdf>]
-<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=835, 614.295pt x 794.97pt>
+ [63 <./figures/preliminaryReport2.pdf>]
+<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=864, 614.295pt x 794.97pt>
 File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
 <use figures/meetingnotes_17-03-24_thomas-palmer.pdf>
 Package pdftex.def Info: figures/meetingnotes_17-03-24_thomas-palmer.pdf used o
@@ -3174,7 +3217,7 @@ Package pdftex.def Info: figures/meetingnotes_17-03-24_thomas-palmer.pdf used o
 n input line 87.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 
-<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=838, page=1, 614.295pt x 7
+<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=867, page=1, 614.295pt x 7
 94.97pt>
 File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
  <use figures/meetingnotes_17-03-24_thomas-palmer.pdf, page 1>
@@ -3187,7 +3230,7 @@ File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/meetingnotes_17-03-24_thomas-palmer.pdf, page1
  used on input line 87.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [62]
+ [64]
 File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
 
 <use figures/meetingnotes_17-03-24_thomas-palmer.pdf, page 1>
@@ -3206,8 +3249,8 @@ File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/meetingnotes_17-03-24_thomas-palmer.pdf, page1
  used on input line 87.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [63 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
-<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=860, page=2, 614.295pt x 7
+ [65 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
+<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=890, page=2, 614.295pt x 7
 94.97pt>
 File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
  <use figures/meetingnotes_17-03-24_thomas-palmer.pdf, page 2>
@@ -3226,8 +3269,8 @@ File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/meetingnotes_17-03-24_thomas-palmer.pdf, page2
  used on input line 87.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [64 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
-<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=865, page=3, 614.295pt x 7
+ [66 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
+<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=895, page=3, 614.295pt x 7
 94.97pt>
 File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
  <use figures/meetingnotes_17-03-24_thomas-palmer.pdf, page 3>
@@ -3246,8 +3289,8 @@ File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/meetingnotes_17-03-24_thomas-palmer.pdf, page3
  used on input line 87.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [65 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
-<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=871, page=4, 614.295pt x 7
+ [67 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
+<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=900, page=4, 614.295pt x 7
 94.97pt>
 File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
  <use figures/meetingnotes_17-03-24_thomas-palmer.pdf, page 4>
@@ -3266,8 +3309,8 @@ File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/meetingnotes_17-03-24_thomas-palmer.pdf, page4
  used on input line 87.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [66 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
-<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=876, page=5, 614.295pt x 7
+ [68 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
+<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=905, page=5, 614.295pt x 7
 94.97pt>
 File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
  <use figures/meetingnotes_17-03-24_thomas-palmer.pdf, page 5>
@@ -3286,8 +3329,8 @@ File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/meetingnotes_17-03-24_thomas-palmer.pdf, page5
  used on input line 87.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [67 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
-<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=881, page=6, 614.295pt x 7
+ [69 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
+<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=910, page=6, 614.295pt x 7
 94.97pt>
 File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
  <use figures/meetingnotes_17-03-24_thomas-palmer.pdf, page 6>
@@ -3306,8 +3349,8 @@ File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/meetingnotes_17-03-24_thomas-palmer.pdf, page6
  used on input line 87.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [68 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
-<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=886, page=7, 614.295pt x 7
+ [70 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]
+<figures/meetingnotes_17-03-24_thomas-palmer.pdf, id=915, page=7, 614.295pt x 7
 94.97pt>
 File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
  <use figures/meetingnotes_17-03-24_thomas-palmer.pdf, page 7>
@@ -3326,43 +3369,46 @@ File: figures/meetingnotes_17-03-24_thomas-palmer.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/meetingnotes_17-03-24_thomas-palmer.pdf, page7
  used on input line 87.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [69 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]) [70 <./figures/twitt
-er_analytics/28daysummary.png> <./figures/twitter_analytics/engagements.png> <.
-/figures/twitter_analytics/impressions.png>] [71 <./figures/twitter_analytics/l
-ikes.png> <./figures/twitter_analytics/linkclicks.png>] [72 <./figures/twitter_
-analytics/replies.png> <./figures/twitter_analytics/retweets.png>] [73 <./figur
-es/google_analytics/uniqueSessions.png> <./figures/google_analytics/pageviews.p
-ng> <./figures/google_analytics/sessionDuration.png>]
+ [71 <./figures/meetingnotes_17-03-24_thomas-palmer.pdf>]) [72] [73 <./figures/
+twitter_analytics/likes.png> <./figures/twitter_analytics/linkclicks.png>] [74 
+<./figures/twitter_analytics/replies.png> <./figures/twitter_analytics/retweets
+.png>] [75]
+
+LaTeX Warning: Empty bibliography on input line 223.
+
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the Final-report.maf file.
 \openout3 = `Final-report.maf'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 236.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 236.
- (Final-report.aux (text/abbreviations.aux)
-(text/ch1-intro.aux) (text/ch2-litreview.aux) (text/ch3-design.aux)
-(text/ch4-testing.aux) (text/ch5-evaluation.aux) (text/ch6-conclusion.aux)
-(text/appendix-1.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 236.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 236.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 230.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 230.
+(Final-report.aux (text/abbreviations.aux) (text/ch1-intro.aux)
+(text/ch2-litreview.aux) (text/ch3-design.aux) (text/ch4-testing.aux)
+(text/ch5-evaluation.aux) (text/ch6-conclusion.aux) (text/appendix-1.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 230.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 230.
 Package rerunfilecheck Info: File `Final-report.out' has not changed.
 (rerunfilecheck)             Checksum: EB83C6074E8CBE74FECEF4CE411CAE4C;5131.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package logreq Info: Writing requests to 'Final-report.run.xml'.
 \openout1 = `Final-report.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 236.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 230.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 232 ({)
+### simple group (level 1) entered at line 226 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 29950 strings out of 493335
- 514290 string characters out of 3139256
- 1021048 words of memory out of 3000000
- 32480 multiletter control sequences out of 15000+200000
- 81242 words of font info for 106 fonts, out of 3000000 for 9000
+ 29962 strings out of 493335
+ 514459 string characters out of 3139256
+ 1021088 words of memory out of 3000000
+ 32481 multiletter control sequences out of 15000+200000
+ 81325 words of font info for 107 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  45i,19n,51p,10366b,3103s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/P
@@ -3381,9 +3427,9 @@ m Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putb8a.pf
 b>
-Output written on Final-report.pdf (87 pages, 889891 bytes).
+Output written on Final-report.pdf (89 pages, 942643 bytes).
 PDF statistics:
- 996 PDF objects out of 1000 (max. 8388607)
- 179 named destinations out of 1000 (max. 500000)
+ 1021 PDF objects out of 1200 (max. 8388607)
+ 188 named destinations out of 1000 (max. 500000)
  21828 words of extra memory for PDF output out of 24883 (max. 10000000)
 
