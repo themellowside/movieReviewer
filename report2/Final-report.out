@@ -31,45 +31,48 @@
 \BOOKMARK [1][-]{section.3.8}{Blog Website}{chapter.3}% 31
 \BOOKMARK [0][-]{chapter.4}{ Testing}{}% 32
 \BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 33
-\BOOKMARK [1][-]{section.4.2}{Movie Review Generation}{chapter.4}% 34
-\BOOKMARK [2][-]{subsection.4.2.1}{Testing of Review Generation}{section.4.2}% 35
-\BOOKMARK [2][-]{subsection.4.2.2}{Changes Made}{section.4.2}% 36
-\BOOKMARK [1][-]{section.4.3}{Blog Website}{chapter.4}% 37
-\BOOKMARK [2][-]{subsection.4.3.1}{Testing of Blog Website}{section.4.3}% 38
-\BOOKMARK [2][-]{subsection.4.3.2}{Testing of Turing-Like Test Website}{section.4.3}% 39
-\BOOKMARK [2][-]{subsection.4.3.3}{Changes Made}{section.4.3}% 40
-\BOOKMARK [1][-]{section.4.4}{Twitter Bot}{chapter.4}% 41
-\BOOKMARK [2][-]{subsection.4.4.1}{Testing of Twitter Bot}{section.4.4}% 42
-\BOOKMARK [2][-]{subsection.4.4.2}{Changes Made}{section.4.4}% 43
-\BOOKMARK [0][-]{chapter.5}{ Evaluation}{}% 44
-\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 45
-\BOOKMARK [1][-]{section.5.2}{Markov Chain text generation}{chapter.5}% 46
-\BOOKMARK [1][-]{section.5.3}{Engagement With Twitter Bot}{chapter.5}% 47
-\BOOKMARK [2][-]{subsection.5.3.1}{Results}{section.5.3}% 48
-\BOOKMARK [2][-]{subsection.5.3.2}{Observations}{section.5.3}% 49
-\BOOKMARK [1][-]{section.5.4}{Comments and Interaction with Blog Website}{chapter.5}% 50
-\BOOKMARK [2][-]{subsection.5.4.1}{Results}{section.5.4}% 51
-\BOOKMARK [2][-]{subsection.5.4.2}{Observations}{section.5.4}% 52
-\BOOKMARK [1][-]{section.5.5}{Turing Test Scenario}{chapter.5}% 53
-\BOOKMARK [2][-]{subsection.5.5.1}{Results}{section.5.5}% 54
-\BOOKMARK [2][-]{subsection.5.5.2}{Observations}{section.5.5}% 55
-\BOOKMARK [0][-]{chapter.6}{ Conclusion and Future Work}{}% 56
-\BOOKMARK [1][-]{section.6.1}{Review of Aims and Objectives}{chapter.6}% 57
-\BOOKMARK [2][-]{subsection.6.1.1}{Aims}{section.6.1}% 58
-\BOOKMARK [2][-]{subsection.6.1.2}{Objectives}{section.6.1}% 59
-\BOOKMARK [1][-]{section.6.2}{Lessons Learned}{chapter.6}% 60
-\BOOKMARK [1][-]{section.6.3}{Future Work}{chapter.6}% 61
-\BOOKMARK [2][-]{subsection.6.3.1}{Improvements to current work}{section.6.3}% 62
-\BOOKMARK [1][-]{section.6.4}{The Future of Generative Film Reviews}{chapter.6}% 63
-\BOOKMARK [1][-]{section.Alph0.1}{Design Documents}{chapter.6}% 64
-\BOOKMARK [1][-]{section.Alph0.2}{Testing Results}{chapter.6}% 65
-\BOOKMARK [1][-]{section.Alph0.3}{Evaluation Data}{chapter.6}% 66
-\BOOKMARK [2][-]{subsection.Alph0.3.1}{Twitter Analytics Data}{section.Alph0.3}% 67
-\BOOKMARK [2][-]{subsection.Alph0.3.2}{Google Analytics Data}{section.Alph0.3}% 68
-\BOOKMARK [2][-]{subsection.Alph0.3.3}{Turing-Like Test Results}{section.Alph0.3}% 69
-\BOOKMARK [1][-]{section.Alph0.4}{Preliminary Project Report}{chapter.6}% 70
-\BOOKMARK [1][-]{section.Alph0.5}{Project Logs}{chapter.6}% 71
-\BOOKMARK [1][-]{section.Alph0.6}{Program Code}{chapter.6}% 72
-\BOOKMARK [2][-]{subsection.Alph0.6.1}{Python}{section.Alph0.6}% 73
-\BOOKMARK [2][-]{subsection.Alph0.6.2}{PHP}{section.Alph0.6}% 74
-\BOOKMARK [2][-]{subsection.Alph0.6.3}{mySQL}{section.Alph0.6}% 75
+\BOOKMARK [1][-]{section.4.2}{Markov Chain System}{chapter.4}% 34
+\BOOKMARK [2][-]{subsection.4.2.1}{Testing}{section.4.2}% 35
+\BOOKMARK [2][-]{subsection.4.2.2}{Summary of Changes Made}{section.4.2}% 36
+\BOOKMARK [1][-]{section.4.3}{Template System}{chapter.4}% 37
+\BOOKMARK [2][-]{subsection.4.3.1}{Testing}{section.4.3}% 38
+\BOOKMARK [2][-]{subsection.4.3.2}{Changes Made}{section.4.3}% 39
+\BOOKMARK [1][-]{section.4.4}{NLG System}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.4.1}{Testing}{section.4.4}% 41
+\BOOKMARK [2][-]{subsection.4.4.2}{Changes Made}{section.4.4}% 42
+\BOOKMARK [1][-]{section.4.5}{Website Testing}{chapter.4}% 43
+\BOOKMARK [2][-]{subsection.4.5.1}{Testing of Blog Website}{section.4.5}% 44
+\BOOKMARK [2][-]{subsection.4.5.2}{Testing of Turing-Like Test Website}{section.4.5}% 45
+\BOOKMARK [1][-]{section.4.6}{Twitter Bot}{chapter.4}% 46
+\BOOKMARK [2][-]{subsection.4.6.1}{Testing of Twitter Bot}{section.4.6}% 47
+\BOOKMARK [2][-]{subsection.4.6.2}{Changes Made}{section.4.6}% 48
+\BOOKMARK [0][-]{chapter.5}{ Evaluation}{}% 49
+\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 50
+\BOOKMARK [1][-]{section.5.2}{Markov Chain text generation}{chapter.5}% 51
+\BOOKMARK [1][-]{section.5.3}{Engagement With Twitter Bot}{chapter.5}% 52
+\BOOKMARK [2][-]{subsection.5.3.1}{Results}{section.5.3}% 53
+\BOOKMARK [2][-]{subsection.5.3.2}{Observations}{section.5.3}% 54
+\BOOKMARK [1][-]{section.5.4}{Comments and Interaction with Blog Website}{chapter.5}% 55
+\BOOKMARK [2][-]{subsection.5.4.1}{Results}{section.5.4}% 56
+\BOOKMARK [2][-]{subsection.5.4.2}{Observations}{section.5.4}% 57
+\BOOKMARK [1][-]{section.5.5}{Turing Test Scenario}{chapter.5}% 58
+\BOOKMARK [2][-]{subsection.5.5.1}{Results}{section.5.5}% 59
+\BOOKMARK [2][-]{subsection.5.5.2}{Observations}{section.5.5}% 60
+\BOOKMARK [0][-]{chapter.6}{ Conclusion and Future Work}{}% 61
+\BOOKMARK [1][-]{section.6.1}{Review of Aims and Objectives}{chapter.6}% 62
+\BOOKMARK [2][-]{subsection.6.1.1}{Aims}{section.6.1}% 63
+\BOOKMARK [2][-]{subsection.6.1.2}{Objectives}{section.6.1}% 64
+\BOOKMARK [1][-]{section.6.2}{Lessons Learned}{chapter.6}% 65
+\BOOKMARK [1][-]{section.6.3}{Future Work}{chapter.6}% 66
+\BOOKMARK [2][-]{subsection.6.3.1}{Improvements to current work}{section.6.3}% 67
+\BOOKMARK [1][-]{section.6.4}{The Future of Generative Film Reviews}{chapter.6}% 68
+\BOOKMARK [0][-]{appendix.A}{Evaluation Data}{}% 69
+\BOOKMARK [1][-]{subsection.A.0.1}{Twitter Analytics Data}{appendix.A}% 70
+\BOOKMARK [2][-]{subsection.A.0.2}{Google Analytics Data}{subsection.A.0.1}% 71
+\BOOKMARK [0][-]{appendix.B}{Turing-Like Test Results}{}% 72
+\BOOKMARK [0][-]{appendix.C}{Preliminary Project Report}{}% 73
+\BOOKMARK [0][-]{appendix.D}{Project Logs}{}% 74
+\BOOKMARK [0][-]{appendix.E}{Program Code}{}% 75
+\BOOKMARK [1][-]{subsection.E.0.1}{Python}{appendix.E}% 76
+\BOOKMARK [2][-]{subsection.E.0.2}{PHP}{subsection.E.0.1}% 77
+\BOOKMARK [2][-]{subsection.E.0.3}{mySQL}{subsection.E.0.1}% 78

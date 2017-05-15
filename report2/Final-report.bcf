@@ -2073,6 +2073,23 @@
     <bcf:datasource type="file" datatype="bibtex">references.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
+    <bcf:citekey order="1">MarkovTextGenerator</bcf:citekey>
+    <bcf:citekey order="2">AutomatedAbstractGeneration</bcf:citekey>
+    <bcf:citekey order="3">LexicalChain</bcf:citekey>
+    <bcf:citekey order="4">TextRank</bcf:citekey>
+    <bcf:citekey order="5">RBSPOS</bcf:citekey>
+    <bcf:citekey order="6">POSTagging</bcf:citekey>
+    <bcf:citekey order="7">Wordnet</bcf:citekey>
+    <bcf:citekey order="8">Vader</bcf:citekey>
+    <bcf:citekey order="9">BuildingNLG</bcf:citekey>
+    <bcf:citekey order="10">NLTK</bcf:citekey>
+    <bcf:citekey order="11">MarkVShaney</bcf:citekey>
+    <bcf:citekey order="12">Archie</bcf:citekey>
+    <bcf:citekey order="13">trump</bcf:citekey>
+    <bcf:citekey order="14">pomo</bcf:citekey>
+    <bcf:citekey order="15">SCIGen</bcf:citekey>
+    <bcf:citekey order="16">standup</bcf:citekey>
+    <bcf:citekey order="17">stop</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="none/global/" type="entry" sortscheme="none" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

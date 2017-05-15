@@ -18,48 +18,66 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {xchapter}{ Design and Implementation}{13}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Proposed order of development for systems. Dependencies indicate works that be used without the other but does not require the system to be implemented\relax }}{15}{figure.caption.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {xchapter}{ Testing}{25}{chapter.4}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Flow chart demonstrating the construction of a Markov model for text input\relax }}{17}{figure.caption.9}
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Flow chart demonstrating how text can be generated out of a Markov model\relax }}{17}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {xchapter}{ Evaluation}{27}{chapter.5}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Flow chart visualising the process of the template-based system.\relax }}{20}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Summary of the past 28 days during which the bot was active}}{29}{figure.caption.8}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Visualisation of the top-level processes for a NLG system.\relax }}{21}{figure.caption.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces \relax }}{29}{figure.caption.8}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Demonstration of the content determination process\relax }}{22}{figure.caption.13}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Engagements with tweets made by the bot\relax }}{29}{figure.caption.9}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagram of the general document structuring process\relax }}{24}{figure.caption.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Impressions had from the tweets made by the bot over 28 days\relax }}{29}{figure.caption.10}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Simplified visualisation of document aggregation.\relax }}{25}{figure.caption.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Diagram of unique sessions held on the blog website.\relax }}{31}{figure.caption.11}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Pageviews during the time the blog website ran\relax }}{31}{figure.caption.12}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Average session duration over the life of the blog website\relax }}{31}{figure.caption.13}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Simple model of lexical choice, how these choices are made are heavily dependant on the type of clause.\relax }}{26}{figure.caption.16}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {xchapter}{ Conclusion and Future Work}{35}{chapter.6}
+\contentsline {xchapter}{ Testing}{29}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces 28 Day Summary of Twitter Bot Analytics\relax }}{72}{figure.caption.16}
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2}{\ignorespaces Total number of 'engagements' with twitter bot over active period\relax }}{72}{figure.caption.17}
+\contentsline {xchapter}{ Evaluation}{37}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3}{\ignorespaces Total number of 'impressions' made by twitter bot over active period\relax }}{72}{figure.caption.18}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Summary of the past 28 days during which the bot was active}}{39}{figure.caption.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4}{\ignorespaces Likes obtained over active period\relax }}{73}{figure.caption.19}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \relax }}{39}{figure.caption.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5}{\ignorespaces Links clicked over active period\relax }}{73}{figure.caption.20}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Engagements with tweets made by the bot\relax }}{39}{figure.caption.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6}{\ignorespaces Replies to posts made by bot over active period\relax }}{74}{figure.caption.21}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Impressions had from the tweets made by the bot over 28 days\relax }}{39}{figure.caption.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7}{\ignorespaces Retweets of posts made by bot over active period\relax }}{74}{figure.caption.22}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Diagram of unique sessions held on the blog website.\relax }}{41}{figure.caption.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {8}{\ignorespaces Google Analytics Screenshot showing unique sessions over test period\relax }}{75}{figure.caption.23}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Pageviews during the time the blog website ran\relax }}{41}{figure.caption.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {9}{\ignorespaces Google Analytics Screenshot showing pageviews over test period\relax }}{75}{figure.caption.24}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Average session duration over the life of the blog website\relax }}{41}{figure.caption.22}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {10}{\ignorespaces Google Analytics Screenshot showing average session duration over test period\relax }}{75}{figure.caption.25}
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {xchapter}{ Conclusion and Future Work}{45}{chapter.6}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {xchapter}{Evaluation Data}{51}{appendix.A}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {xchapter}{Turing-Like Test Results}{55}{appendix.B}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {xchapter}{Preliminary Project Report}{67}{appendix.C}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {xchapter}{Project Logs}{79}{appendix.D}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {xchapter}{Program Code}{87}{appendix.E}

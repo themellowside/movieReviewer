@@ -38,11 +38,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.1}NLTK}{9}{subsection.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.2}Mark V Shaney}{9}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.2}Mark V Shaney}{10}{subsection.2.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.3}Twitter Bots}{10}{subsection.2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.4}Parody Generators}{10}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.4}Parody Generators}{11}{subsection.2.2.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.5}NLG Systems}{11}{subsection.2.2.5}
 \defcounter {refsection}{0}\relax 
@@ -62,98 +62,104 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.5}Template-Based System for Text Generation}{16}{section.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}NLG System}{18}{section.3.6}
+\contentsline {section}{\numberline {3.6}NLG System}{19}{section.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}Twitter Bot}{23}{section.3.7}
+\contentsline {section}{\numberline {3.7}Twitter Bot}{27}{section.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.8}Blog Website}{23}{section.3.8}
+\contentsline {section}{\numberline {3.8}Blog Website}{28}{section.3.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4} Testing}{25}{chapter.4}
+\contentsline {chapter}{\numberline {4} Testing}{29}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Introduction}{25}{section.4.1}
+\contentsline {section}{\numberline {4.1}Introduction}{29}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Movie Review Generation}{25}{section.4.2}
+\contentsline {section}{\numberline {4.2}Markov Chain System}{29}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Testing of Review Generation}{25}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.1}Testing}{29}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Changes Made}{26}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.2}Summary of Changes Made}{30}{subsection.4.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Blog Website}{26}{section.4.3}
+\contentsline {section}{\numberline {4.3}Template System}{31}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.1}Testing of Blog Website}{26}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.1}Testing}{31}{subsection.4.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.2}Testing of Turing-Like Test Website}{26}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.2}Changes Made}{31}{subsection.4.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.3}Changes Made}{26}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}NLG System}{32}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Twitter Bot}{26}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Testing}{32}{subsection.4.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.1}Testing of Twitter Bot}{26}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Changes Made}{33}{subsection.4.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.2}Changes Made}{26}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}Website Testing}{33}{section.4.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5} Evaluation}{27}{chapter.5}
+\contentsline {subsection}{\numberline {4.5.1}Testing of Blog Website}{33}{subsection.4.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Introduction}{27}{section.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Testing of Turing-Like Test Website}{34}{subsection.4.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Markov Chain text generation}{27}{section.5.2}
+\contentsline {section}{\numberline {4.6}Twitter Bot}{34}{section.4.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Engagement With Twitter Bot}{28}{section.5.3}
+\contentsline {subsection}{\numberline {4.6.1}Testing of Twitter Bot}{34}{subsection.4.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.1}Results}{28}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {4.6.2}Changes Made}{35}{subsection.4.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.2}Observations}{30}{subsection.5.3.2}
+\contentsline {chapter}{\numberline {5} Evaluation}{37}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Comments and Interaction with Blog Website}{30}{section.5.4}
+\contentsline {section}{\numberline {5.1}Introduction}{37}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.1}Results}{30}{subsection.5.4.1}
+\contentsline {section}{\numberline {5.2}Markov Chain text generation}{37}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.2}Observations}{31}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.3}Engagement With Twitter Bot}{38}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}Turing Test Scenario}{32}{section.5.5}
+\contentsline {subsection}{\numberline {5.3.1}Results}{38}{subsection.5.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.1}Results}{32}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.3.2}Observations}{40}{subsection.5.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.2}Observations}{33}{subsection.5.5.2}
+\contentsline {section}{\numberline {5.4}Comments and Interaction with Blog Website}{40}{section.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6} Conclusion and Future Work}{35}{chapter.6}
+\contentsline {subsection}{\numberline {5.4.1}Results}{40}{subsection.5.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Review of Aims and Objectives}{35}{section.6.1}
+\contentsline {subsection}{\numberline {5.4.2}Observations}{41}{subsection.5.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.1}Aims}{35}{subsection.6.1.1}
+\contentsline {section}{\numberline {5.5}Turing Test Scenario}{42}{section.5.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.2}Objectives}{35}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {5.5.1}Results}{42}{subsection.5.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Lessons Learned}{37}{section.6.2}
+\contentsline {subsection}{\numberline {5.5.2}Observations}{43}{subsection.5.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}Future Work}{37}{section.6.3}
+\contentsline {chapter}{\numberline {6} Conclusion and Future Work}{45}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.1}Improvements to current work}{37}{subsection.6.3.1}
+\contentsline {section}{\numberline {6.1}Review of Aims and Objectives}{45}{section.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}The Future of Generative Film Reviews}{38}{section.6.4}
+\contentsline {subsection}{\numberline {6.1.1}Aims}{45}{subsection.6.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Appendices}{}{section*.15}
+\contentsline {subsection}{\numberline {6.1.2}Objectives}{45}{subsection.6.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {.1}Design Documents}{42}{section.Alph0.1}
+\contentsline {section}{\numberline {6.2}Lessons Learned}{47}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {.2}Testing Results}{42}{section.Alph0.2}
+\contentsline {section}{\numberline {6.3}Future Work}{47}{section.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {.3}Evaluation Data}{42}{section.Alph0.3}
+\contentsline {subsection}{\numberline {6.3.1}Improvements to current work}{47}{subsection.6.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {.3.1}Twitter Analytics Data}{42}{subsection.Alph0.3.1}
+\contentsline {section}{\numberline {6.4}The Future of Generative Film Reviews}{48}{section.6.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {.3.2}Google Analytics Data}{42}{subsection.Alph0.3.2}
+\contentsline {chapter}{Appendices}{}{section*.24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {.3.3}Turing-Like Test Results}{42}{subsection.Alph0.3.3}
+\contentsline {chapter}{\numberline {A}Evaluation Data}{51}{appendix.A}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {.4}Preliminary Project Report}{53}{section.Alph0.4}
+\contentsline {subsection}{\numberline {A.0.1}Twitter Analytics Data}{51}{subsection.A.0.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {.5}Project Logs}{64}{section.Alph0.5}
+\contentsline {subsection}{\numberline {A.0.2}Google Analytics Data}{53}{subsection.A.0.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {.6}Program Code}{72}{section.Alph0.6}
+\contentsline {chapter}{\numberline {B}Turing-Like Test Results}{55}{appendix.B}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {.6.1}Python}{72}{subsection.Alph0.6.1}
+\contentsline {chapter}{\numberline {C}Preliminary Project Report}{67}{appendix.C}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {.6.2}PHP}{72}{subsection.Alph0.6.2}
+\contentsline {chapter}{\numberline {D}Project Logs}{79}{appendix.D}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {.6.3}mySQL}{72}{subsection.Alph0.6.3}
+\contentsline {chapter}{\numberline {E}Program Code}{87}{appendix.E}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {E.0.1}Python}{87}{subsection.E.0.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {E.0.2}PHP}{87}{subsection.E.0.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {E.0.3}mySQL}{87}{subsection.E.0.3}

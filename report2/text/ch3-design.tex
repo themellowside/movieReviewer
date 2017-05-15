@@ -32,6 +32,12 @@ The final, an NLG system which will require further metadata as well as the corp
 I planned to implement the Markov chain system first, since it required the least data and its relative ease of implementation. Data is to be obtained through twitter search or from a movie review as an input. The second system to be the template system, as it required the second least input data, and this data gathering can be iterated upon in the NLG system, which is why I chose to implement this last.\\
 
 As well as this, it is planned that a twitter bot, and blog website be implemented in order to collect data on these systems working in the real world. These are planned to be implemented in tandem with these other systems - the Twitter bot needing to be made live after or at the same time as the blog is developed, as its main purpose is to drive traffic towards the reviews generated.\\
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{figures/diagrams_etc/system_iterations}
+\caption{Proposed order of development for systems. Dependencies indicate works that be used without the other but does not require the system to be implemented}
+\label{fig:systemiterations}
+\end{figure}
 
 \section{Markov Chain for Text Generation}
 Markov models represent a series of possible events whose occurrences depend only on the last event which happened. The probability of each event occurring is based on how frequently this event occurred in the data it is given. For example, a Tuesday would have a 100\% chance of transitioning into a Wednesday, given an input sequence of a week.\\
@@ -58,8 +64,20 @@ It could generate "the dog and the walrus" or "the dog and the hound the cat and
 
 My implementation includes a breaking point of a character limit, as well as taking multiple documents (as opposed to a single long text) to build a chain in order to accommodate for using data sources such as twitter in place of longer texts, depending on what is being generated.\\
 
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{"figures/diagrams_etc/MarkovChain-GenerateTable - Page 1"}
+\caption{Flow chart demonstrating the construction of a Markov model for text input}
+\label{fig:markovchain-generatetable---page-1}
+\end{figure}
 
 
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{"figures/diagrams_etc/markov_generatetext - Page 1"}
+\caption{Flow chart demonstrating how text can be generated out of a Markov model}
+\label{fig:markovgeneratetext---page-1}
+\end{figure}
 
 
 
@@ -81,8 +99,22 @@ For the introduction, the aim was to inform the reader of the film's name, the d
 The outro template consists of a sentence that recommends the movie based on some factor such as the performance of the director, an actor, general sentiment and liking the genre. It too uses the Part of Speech tagging method, or a general sentiment based word selection.\\
 Adjectives and adverbs in this review were selected in one of two ways, depending on the parameter given to the system. The first was a simple polarity based selection of 'good' or 'bad', 'well' or 'poorly' that fill out the templates appropriately, although in a fairly bland style. The second used a Part-of-Speech tagging system to retain all of the adjectives and adverbs from the sentences related to the subject we wish to add sentiment to, and then these words individually tagged using the VADER sentiment analysis method included in NLTK to return a (hopefully representative) sentiment. In the absence of any adjectives or adverbs in the corpus, the simple polarity words are returned.
 
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{figures/diagrams_etc/template_system}
+\caption{Flow chart visualising the process of the template-based system.}
+\label{fig:templatesystem}
+\end{figure}
+
+
 \section{NLG System}
 The design of the NLG system is in line with the 6 phases outlined by Dale and Reiter in 'Building Natural Language Generation Systems', although it was difficult to design a system which could report opinion.
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{figures/diagrams_etc/nlg_toplevel}
+\caption{Visualisation of the top-level processes for a NLG system.}
+\label{fig:nlgtoplevel}
+\end{figure}
 
 Content determination:\\
 Content determination is the step in the process which simply involves deciding what content should be included in the generated document.
@@ -94,6 +126,14 @@ Much like in the template-based system, the first step is obtaining all of the d
 As mentioned previously, some determination of the most relevant members of the crew is made. It seemed most intuitive to design this as a simple search for the n-most frequently mentioned members of the cast and crew to put into the film review. Arbitrarily I chose 4 members of the cast, and 3 members of the crew as maximums, and iterated through the list of sentiment-tagged sentences associated with each member of the cast and crew.\\
 
 With all of this data attained, the content determined is surmised as a list of the most important cast members with all the sentiment tagged sentences which mentioned them, with the same for the crew, and the director. Of course the title of the film is also a part of the content determined, as well as the genre, and a general overall sentiment to help decide on a tone. These elements have been gathered in the same way as they have in the template based system. I did choose to drop the plot synopsis, as I felt it did not provide particularly brilliant shortened forms from the use of TextRank, and copying a plot synopsis verbatim in order to seem more human felt inappropriate as it is a piece of writing that has actually been created by a human and not modified at all.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{figures/diagrams_etc/content_det}
+\caption{Demonstration of the content determination process}
+\label{fig:contentdet}
+\end{figure}
+
 
 Document Structuring:\\
 This is the stage which involves deciding the order of the document. For my generation of a movie review, I decided that this stage involved the structuring of an introduction, main body of evaluative text, and an outro consisting of a closing statement and recommendation of the film.
@@ -108,17 +148,37 @@ The main body of the document is somewhat structured in a similar manner, althou
 After this, the rest of the cast, crew and director if still not mentioned in evaluation are then given clause pairs concerning their performance and describing their roles.\\
 When cast or crew members are mentioned, they are done so with pairs of clauses - one of which gives sentiment and another which describes their role or job. The order of the clauses is random and intended to make the description of the same type of thing multiple times seem more human in its variety.\\
 
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{"figures/diagrams_etc/structure document"}
+\caption{Diagram of the general document structuring process}
+\label{fig:structure-document}
+\end{figure}
 
 
 Aggregation:\\
 This stage involves combing the document structure in order to combine clauses into sentences so that they are more readable and flow more effectively. For example, the combination of two clauses such as "Actor plays the role of Character" and "Actor was believable" being aggregated into "Actor plays the role of Character believably", or "Actor was believable in the role of Character" depending on the order these clauses were determined to be placed in.\\
 The introductory clause is concatenated into a single sentence concerning all of the topics it hits upon, maintaining the order each item is mentioned. The outro is also handled like this in order to make it more simple to handle during lexical choice, although it is not necessarily intended to be a single sentence.\\
 
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{figures/diagrams_etc/aggregateDocument}
+\caption{Simplified visualisation of document aggregation.}
+\label{fig:aggregatedocument}
+\end{figure}
 
 Lexical Choice:\\
 The choice of how exactly to word each of these sentences was quite a difficult problem to solve. I initially wanted to model the language in subject-verb-object pattern objects but realised that it would be more efficient to fill in patterns that already matched these sentences with pre-determined lexical choices, save for sentiment related adverbs and adjectives which would be chosen from the collection of sentences associated with the topic lexical choice was being made for. It also became clear that this was generating quite bland sentences, even with differing wording, so I included the insertion of sentiment based templates to add further variety to the text.\\
 In order to make these lexical choices, it iterates through each sentence in the document and converts it from a description of the sentence and the required data to fulfil it into an array of words and phrases which can be exploded between sentences to create an actual sentence. These sentences often require a word that conveys sentiment to be fulfilled, which is a fairly large problem in itself.\\
 I solved the issue of selecting relative sentiment through passing the list of sentences related to the topic in to a part of speech tagger, I have used the one included in the NLTK, and retaining only the adjectives or adverbs depending on which is required. If there are none of the required word, a generic word of either positive or negative sentiment is selected to fill the space. Otherwise, the word is chosen from this list of remaining adjectives or adverbs, and inserted into the document.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{figures/diagrams_etc/lex_choice}
+\caption{Simple model of lexical choice, how these choices are made are heavily dependant on the type of clause.}
+\label{fig:lexchoice}
+\end{figure}
+
 
 Referring Expressions:\\
 The generation of referring expressions in NLG refers to resolving anaphora and how to refer to a particular entity within text, in order to improve the naturalness of the text created. In my case, I just needed to avoid the review sounding more robotic by referring to a person with their full name only each time, and make callbacks to their being mentioned earlier on in the text if they are. In order to resolve the issue of overuse of full name, a probability check is made and then if it passes, the full name is replaced with just the surname of the person being iterated through at this point. There is a further probability check made for repeated mentions, which includes a templated referral along the lines of 'bringing them up again'.\\

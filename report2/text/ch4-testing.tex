@@ -3,21 +3,184 @@
 %\minitoc
 
 \section{Introduction}
-Testing each part of this system involves checking primarily that outputs are what they should be, but also checking that the data scraped from the internet is handled correctly in edge-cases and that errors are handled correctly and not ignored or allowed to halt the program code. Because of this, I have to create my own example data that looks like what is gathered from web scraping and API calls which mirror edge-cases.
+Testing each part of this system involves checking primarily that outputs are what they should be (or at least as expected due to the outputs being semi-random in places), as we are handling a lot of data which is scraped from the internet, using APIs and other tools for gathering data from the internet. 
 
-\section{Movie Review Generation}
-\subsection{Testing of Review Generation}
-This involved a lot of testing of individual modules and functions to make sure that they handle all the data passed in to them. As the completed system merely takes an input which is the name of a film and several on/off parameters, there is not much in the user space that can change with regards to testing.
+
+\section{Markov Chain System}
+\subsection{Testing}
+This involved simply testing that the program executed at the correct point and could handle both of the input sources I gave it, as well as that the Markov table is built successfully from the two types of input and the actual obtaining of these inputs also works.
+
+\begin{center}
+	\begin{tabular}{||m{15em} m{10em} m{10em} m{4em}||} 
+		
+		\hline
+		Test Case & Expected & Actual & Status \\ [0.5ex] 
+		\hline\hline
+		Twitter corpora obtained& Twitter API returns search data& Twitter API returns search data& Pass\\
+		\hline
+		Twitter corpora parsing& All non-reply data is trimmed, only tweet text remains& URLS of images are still retained& Fail\\
+		\hline
+		Markov Table Building - Single text source& Table builds successfully& Table builds successfully& Pass\\
+		\hline
+		Markov Table Building - Twitter as Text source& Table builds successfully & Table builds successfully& Pass\\
+		\hline
+		Text Generates from single review input& Text is output, no runtime error& output obtained& pass\\
+		\hline
+		Text generates from Twitter search corpora& Text is output, no runtime error& output obtained& pass\\ [1ex] 
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsection{Summary of Changes Made}
+Images and URLS are still retained when the text is parsed so I introduced a check for hyperlinks and removed those from the text as well, since the reuse of this images and urls is not something I necessarily want.
+
+\section{Template System}
+\subsection{Testing}
+\begin{center}
+	\begin{tabular}{||m{15em} m{10em} m{10em} m{4em}||} 
+		\hline
+		Test Case & Expected & Actual & Status \\ [0.5ex] 
+		\hline\hline
+		IMDB Corpora Scraped& n*10 reviews scraped& n pages of reviews are scraped for a particular review& pass\\
+		\hline 
+		IMDB Plot Summary Scraped& A plot-summary is scraped from IMdB& Plot summary scraped successfully& pass\\
+		\hline
+		Metadata obtained from API& Cast, Director, Crew, Genre all scraped from TMdB & The aforementioned data is all obtained& pass\\
+		\hline
+		Cast and Crew sentiment assignation& Cast, crew, director sent all assigned appropriately &Odd repetition and multiple of the same text to one cast member, some members not mentioned and assigned to a sentence anyway & Fail\\
+		\hline
+		Adverbs and adjectives searching&An adverb or adjective is obtained from a given corpora& Either adverb or adjective is returned, unless there aren't any one available& fail\\
+		\hline
+		Intro templates fulfil successfully&Each pre-defined introduction section is fulfilled when asked& They all were filled succesfully& Pass\\
+		\hline
+		Main body templates fulfil successfully&Each pre-defined introduction section is fulfilled when asked& They all were filled succesfully& Pass\\
+		\hline
+		Outro templates fulfil successfully&Each pre-defined introduction section is fulfilled when asked& They all were filled succesfully& Pass\\
+		\hline
+		Full review text&A full review text is obtained& Full review text is indeed obtained& Pass\\ [1ex] 
+		\hline
+	\end{tabular}
+\end{center}
+
 \subsection{Changes Made}
-\section{Blog Website}
+Cast and crew being assigned individually tagged sentences that mentioned them was broken in a number of ways. For one, it would search for instances of either  name of a cast or crew member by spitting the name obtained from the API into a list based on where spaces occur in that name or their role. This meant that people with roles such as "The man with the hat" would be overly represented in the sample due to "The" and other common words being in their name. I included a list of names that could be removed from these acceptable names in order to mitigate this.\\
+As well as this, the cast and crew members were being multiplied as it was not correctly identifying when cast and crew members had already had sentences assigned to them, so kept creating instances for them in the list. Instead of a list of actor/cast names, accompanied by a nested list of sentences that mention them with their sentiment polarity, it would mention the actor and cast member every single time, creating a much larger and much less efficient list. This was fixed so the data collection worked as intended.\\
+In cases where adverbs or adjectives weren't present in the corpora provided, there was no method for handling this sentiment request. This was changed so that at the very least a basic adjective or adverb would be returned in the stead of something more interesting. "Good" or "well" would be returned in these cases, which is at least going to fulfil the template.
+
+
+
+\section{NLG System}
+\subsection{Testing}
+Primarily involves testing that the new data obtained works as intended, as well as each stage in the NLG process was producing a correct result that could lead to an output.
+\begin{center}
+	\begin{tabular}{||m{15em} m{10em} m{10em} m{4em}||} 
+		\hline
+		Test Case & Expected & Actual & Status \\ [0.5ex] 
+		\hline\hline
+		Past Work Mining&&&\\
+		\hline
+		Most Important Cast/Crew&&&\\ 
+		\hline
+		Intro Structure&&&\\
+		\hline
+		Body Structure&&&\\
+		\hline
+		Outro Structure&&&\\
+		\hline
+		Intro aggregation&&&\\
+		\hline
+		Body aggregation&&&\\
+		\hline
+		Outro Aggregation&&&\\
+		\hline
+		Intro lexchoice&&&\\
+		\hline
+		Body lexchoice&&&\\
+		\hline
+		Outro lexchoice&&&\\
+		\hline
+		Referring Expressions&&&\\
+		\hline
+		Realisation&&&\\
+		\hline	
+		Full text& A full text is obtained, from start to beginning& We get a full review& Pass\\ [1ex] 
+		\hline
+		
+	\end{tabular}
+\end{center}
+
+\subsection{Changes Made}
+
+
+
+\section{Website Testing}
 \subsection{Testing of Blog Website}
-Most of this testing work is making sure that the SQL CRUD functions work, and making sure that the website displays the information that is intended, and checking that my information gathering here is accurate.
+This testing mainly involved testing that aspects of the system that face the users work, as the rest can be handled by the PHPMyAdmin portal for interfacing with the database.
+\begin{center}
+	\begin{tabular}{||m{15em} m{10em} m{10em} m{4em}||} 
+		\hline
+		Test Case & Expected & Actual & Status \\ [0.5ex] 
+		\hline\hline
+		Create Account Submit& Account submits, database updates, pwd hashes+salts& pwd hash+salt successful& pass\\
+		\hline
+		Login Submit (correct details)&Login is successful&Login is successful& pass\\
+		\hline
+		Login Submit (incorrect details)&Login is unsuccessful&Login is unsuccessful& pass\\
+		\hline
+		Log Out Clicked&Account is logged out&Account is logged out&pass\\
+		\hline
+		Review Submit&Details are submitted into the db&Review is submitted successfully& pass\\
+		\hline
+		Review Edit Submit&Review is updated in database&Review is updated& Pass\\
+		\hline
+		Main Page Loads&Paginated data loads, review loads chronologically&Reviews load& Pass\\
+		\hline
+		Individual Review Loads&Review loads, comments section loads& Review and comments section load& Pass\\
+		\hline
+		Comments Submit&Comments insert into database for correct entry&Comments insert correctly&Pass\\
+		\hline
+		Comments Load&Comments load for correct entry& Comments do load& Pass\\ [1ex]
+		\hline
+	\end{tabular}
+\end{center}
+
 
 \subsection{Testing of Turing-Like Test Website}
-This mostly involved checking that data entry performed correctly.
+Primarily involved checking data entry worked completely.
 
-\subsection{Changes Made}
+\begin{center}
+	\begin{tabular}{||m{15em} m{10em} m{10em} m{4em}||} 
+		\hline
+		Test Case & Expected & Actual & Status \\ [0.5ex] 
+		\hline\hline
+		Data Fetches& Data for each review loads& It does& Pass\\
+		\hline
+		Completion of First Item&SQL executes successfully, update visible on database& Update is successful& Pass\\
+		\hline
+		Completion of Last Item&SQL executes successfully, visible on db& Update is successful& Pass\\ [1ex] 
+		\hline
+	\end{tabular}
+\end{center}
+
 \section{Twitter Bot}
 \subsection{Testing of Twitter Bot}
-I have decided to test the Twitter Bot with a series of items which I have saved to use for testing, as well as some live tests taken from Twitter at runtime. 
+I have mostly decided to test that the Bot runs as expected, although it only has two outputs.
+\begin{center}
+	\begin{tabular}{||m{15em} m{10em} m{10em} m{4em}||} 
+		\hline
+		Test Case & Expected & Actual & Status \\ [0.5ex] 
+		\hline\hline
+		Generating Promotional Tweet& Posts & Post Successfully & Pass \\ 
+		\hline
+		Gen promo tweet (length intentionally too long) & Doesn't post, code continues to execute & As prior& Pass\\
+		\hline
+		Generate Markov Tweet (Acceptable Length) & Posts & Tweet outside of character limit (far too often to be inadmissable) & fail\\
+		\hline
+		Gen Markov tweet (length intentionally too long) & Doesn't post, code continues to execute & As prior& Pass\\ [1ex] 
+		\hline
+	\end{tabular}
+\end{center}
+
 \subsection{Changes Made}
+First, the bot would far more often than not attempt to create tweets that were too long to be postable using the Markov model, as it would not check for a character limit to have been exceeded due to this not being needed when simply generating Markov text. I added a parameter to check that things would work. \\
+Then without my noticing, the bot would post tweets that were a single word long due to a mistake checking the tweets were less than the character limit and breaking the chain. It checked that the tweet was longer than 144 characters as a conditional for continuing, which no entry was as it was a single word to begin with, and just returned that first input.\\

@@ -1,0 +1,287 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{none/global/}
+    \entry{MarkovTextGenerator}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d433272a8da287e7d9b17c3f80798a3f}{%
+           family={Yue},
+           family_i={Y\bibinitperiod},
+           given={Yisong},
+           given_i={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{d433272a8da287e7d9b17c3f80798a3f}
+      \strng{fullhash}{d433272a8da287e7d9b17c3f80798a3f}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://www.yisongyue.com/shaney/}}
+      \field{title}{Mark V Shaney}
+    \endentry
+    \entry{AutomatedAbstractGeneration}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=fc7a17dd264f35df439fbc01e3f38fcf}{%
+           family={Luhn},
+           family_i={L\bibinitperiod},
+           given={H.\bibnamedelimi P.},
+           given_i={H\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{fc7a17dd264f35df439fbc01e3f38fcf}
+      \strng{fullhash}{fc7a17dd264f35df439fbc01e3f38fcf}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://courses.ischool.berkeley.edu/i256/f06/papers/luhn58.pdf}}
+      \field{title}{The Automatic Creation of Literature Abstracts}
+    \endentry
+    \entry{LexicalChain}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ead09aa7ab1a6cac14ed44bc956580ec}{%
+           family={Regina\bibnamedelima Barzilay},
+           family_i={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Michael\bibnamedelima Elhadad},
+           given_i={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{ead09aa7ab1a6cac14ed44bc956580ec}
+      \strng{fullhash}{ead09aa7ab1a6cac14ed44bc956580ec}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://scholar.google.co.uk/scholar_url?url=http\%3A\%2F\%2Facademiccommons.columbia.edu\%2Fdownload\%2Ffedora_content\%2Fdownload\%2Fac\%3A160051\%2FCONTENT\%2Fbarzilay_elhadad_97.pdf&hl=en&sa=X&scisig=AAGBfm1-hlclQyAND4sOoh9b_i8tRHRf4A&nossl=1&oi=scholarr&ei=cqieVeqaCcaS7AaX_aSoBw&ved=0CB8QgAMoADAA}}
+      \field{title}{Using Lexical Chains for Text Summarization}
+    \endentry
+    \entry{TextRank}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=cc5d69cba146620f6dec9e4c111f2080}{%
+           family={Rada\bibnamedelima Mihalcea},
+           family_i={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Paul\bibnamedelima Tarau},
+           given_i={P\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{cc5d69cba146620f6dec9e4c111f2080}
+      \strng{fullhash}{cc5d69cba146620f6dec9e4c111f2080}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf}}
+      \field{title}{TextRank: Bringing Order into Texts}
+    \endentry
+    \entry{RBSPOS}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9f8e33baaaf8e47517200546eb04dc57}{%
+           family={Brill},
+           family_i={B\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{9f8e33baaaf8e47517200546eb04dc57}
+      \strng{fullhash}{9f8e33baaaf8e47517200546eb04dc57}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://luthuli.cs.uiuc.edu/~daf/courses/Signals\%20AI/Papers/HMMs/h92-1022.pdf}}
+      \field{title}{A Simple Rule-Based Part of Speech Tagger}
+    \endentry
+    \entry{POSTagging}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=2a8d1171f2190e4fb17aca47aca907be}{%
+           family={Kristina\bibnamedelima Toutanova},
+           family_i={K\bibinitperiod\bibinitdelim T\bibinitperiod},
+           given={Christopher\bibnamedelimb D.\bibnamedelimi Manning},
+           given_i={C\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{2a8d1171f2190e4fb17aca47aca907be}
+      \strng{fullhash}{2a8d1171f2190e4fb17aca47aca907be}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{https://nlp.stanford.edu/~manning/papers/emnlp2000.pdf}}
+      \field{title}{Enriching the Knowledge Sources Used in a Maximum Entropy Part-of-Speech Tagger}
+    \endentry
+    \entry{Wordnet}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=496be5c48bfc17614e5bfa6fb0a63f41}{%
+           family={Fellbaum},
+           family_i={F\bibinitperiod},
+           given={C},
+           given_i={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{496be5c48bfc17614e5bfa6fb0a63f41}
+      \strng{fullhash}{496be5c48bfc17614e5bfa6fb0a63f41}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://iaoa.org/isc2012/docs/encycloped.article.pdf}}
+      \field{title}{Encyclopedia of Language \& Linguistics, Second Edition}
+    \endentry
+    \entry{Vader}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=28a6cb8c23ca4a44a93e08022f676a4f}{%
+           family={C.J.\bibnamedelimi Hutto},
+           family_i={C\bibinitperiod\bibinitdelim H\bibinitperiod},
+           given={Eric\bibnamedelima Gilbert},
+           given_i={E\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{28a6cb8c23ca4a44a93e08022f676a4f}
+      \strng{fullhash}{28a6cb8c23ca4a44a93e08022f676a4f}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://comp.social.gatech.edu/papers/icwsm14.vader.hutto.pdf}}
+      \field{title}{VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text}
+    \endentry
+    \entry{BuildingNLG}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bb690a6b63ced72ab5fc5359e4d505cb}{%
+           family={Ehud\bibnamedelima Reiter},
+           family_i={E\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Robert\bibnamedelima Dale},
+           given_i={R\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb690a6b63ced72ab5fc5359e4d505cb}
+      \strng{fullhash}{bb690a6b63ced72ab5fc5359e4d505cb}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Building Natural Language Generation Systems}
+    \endentry
+    \entry{NLTK}{misc}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://www.nltk.org}}
+      \field{title}{Natural Language Tool-kit}
+    \endentry
+    \entry{MarkVShaney}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b9281008b69674a1d4c76460d361ade8}{%
+           family={Subramanian},
+           family_i={S\bibinitperiod},
+           given={Devika},
+           given_i={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{b9281008b69674a1d4c76460d361ade8}
+      \strng{fullhash}{b9281008b69674a1d4c76460d361ade8}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{https://www.cs.rice.edu/~devika/comp140/Shaney.pdf/}}
+      \field{title}{The Curious Case of Mark V. Shaney}
+    \endentry
+    \entry{Archie}{misc}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{https://www.archie.co/}}
+      \field{title}{Archie}
+    \endentry
+    \entry{trump}{misc}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{https://twitter.com/robodonaldtrump}}
+      \field{title}{@robodonaldtrump}
+    \endentry
+    \entry{pomo}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d54110bde70d69897bd54ec9a0e222de}{%
+           family={Bulhak},
+           family_i={B\bibinitperiod},
+           given={Andrew\bibnamedelima C.},
+           given_i={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{d54110bde70d69897bd54ec9a0e222de}
+      \strng{fullhash}{d54110bde70d69897bd54ec9a0e222de}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://www.elsewhere.org/journal/wp-content/uploads/2005/11/tr-cs96-264.pdf}}
+      \field{title}{On the Simulation of Postmodernism and Mental Debility using Recursive Transition Networks}
+    \endentry
+    \entry{SCIGen}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=e04e9989603d526ff66bad887c2d0a3c}{%
+           family={Jeremy\bibnamedelima Stribling},
+           family_i={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+           suffix={Max\bibnamedelima Krohn},
+           suffix_i={M\bibinitperiod\bibinitdelim K\bibinitperiod},
+           given={Dan\bibnamedelima Aguayo},
+           given_i={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{e04e9989603d526ff66bad887c2d0a3c}
+      \strng{fullhash}{e04e9989603d526ff66bad887c2d0a3c}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{https://pdos.csail.mit.edu/archive/scigen/}}
+      \field{title}{SCIGen}
+    \endentry
+    \entry{standup}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=0494ec1d1bf82d1c383d7c111df13a97}{%
+           family={Ruli\bibnamedelima Manurung},
+           family_i={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+           suffix={Graeme\bibnamedelima Ritchie},
+           suffix_i={G\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Helen\bibnamedelima Pain},
+           given_i={H\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{0494ec1d1bf82d1c383d7c111df13a97}
+      \strng{fullhash}{0494ec1d1bf82d1c383d7c111df13a97}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://users.sussex.ac.uk/~christ/crs/gc/STANDUP_AAI_revised.pdf}}
+      \field{title}{The Construction of a Pun Generator for Language Skills Development}
+    \endentry
+    \entry{stop}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c9517638b2f329621fb5a842fb42032b}{%
+           family={Ehud\bibnamedelima Reiter},
+           family_i={E\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Roma\bibnamedelima Robertson},
+           given_i={R\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{c9517638b2f329621fb5a842fb42032b}
+      \strng{fullhash}{c9517638b2f329621fb5a842fb42032b}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://homepages.abdn.ac.uk/e.reiter/pages/papers/rags99.pdf}}
+      \field{title}{The Architecture of the STOP System}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
